@@ -2741,7 +2741,7 @@ renderTasks('s8', [
 /* ===================================================================
    TOC & confidence table
    =================================================================== */
-const TOC = [['s0', '0 The system map'], ['s1', '1 CPU components'], ['s2', '2 Fetch–decode–execute'], ['s3', '3 Memory & cache'], ['s4', '4 CPU vs GPU'], ['s5', '5 Pipelining (HL)'], ['s6', '6 Secondary storage'], ['s7', '7 Compression'], ['s8', '8 Cloud services']];
+const TOC = [['s0', '0 The system map'], ['s1', '1 CPU components'], ['s2', '2 Fetch–decode–execute'], ['s3', '3 Memory & cache'], ['s4', '4 CPU vs GPU (HL)'], ['s5', '5 Pipelining (HL)'], ['s6', '6 Secondary storage'], ['s7', '7 Compression'], ['s8', '8 Cloud services']];
 $('toc').innerHTML = TOC.map(([id, t]) => `<a href="#${id}" class="${t.includes('HL') ? 'hl' : ''}">${t}</a>`).join('');
 const CONF = [['A1.1.1', 'CPU components and interactions'], ['A1.1.2', 'Role of a GPU'], ['A1.1.3', 'CPU vs GPU differences (HL)'], ['A1.1.4', 'Primary memory, cache hit/miss'], ['A1.1.5', 'Fetch–decode–execute cycle'], ['A1.1.6', 'Pipelining and multi-core (HL)'], ['A1.1.7', 'Secondary storage'], ['A1.1.8', 'Compression'], ['A1.1.9', 'Cloud services']];
 $('conf').innerHTML = '<tr><th>Statement</th><th>Red</th><th>Amber</th><th>Green</th></tr>' + CONF.map(([r, t], i) => `<tr><td><b>${r}</b> ${t}</td><td><input type="radio" name="cf${i}"></td><td><input type="radio" name="cf${i}"></td><td><input type="radio" name="cf${i}"></td></tr>`).join('');
