@@ -1,9 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Topic A1 Computer fundamentals — interactive, self-marking worksheet</title>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>IB DP Computer Science · Topics A1 &amp; A2 · Interactive Self-Marking Worksheet</title>
 <style>
   :root{--paper:#F7F6F1;--ink:#1B2233;--muted:#5C6478;--rule:#D7D5CC;--copper:#B8702B;--copper-soft:#F3E4D3;--teal:#1F7A72;--teal-soft:#D9ECE9;--blue:#2F5DA8;--blue-soft:#DCE5F5;--mem:#EEEDE6;--ok:#2E7D4F;--ok-soft:#DFF1E5;--bad:#A0342B;--bad-soft:#F7E1DE}
   *{box-sizing:border-box}
@@ -287,12 +284,49 @@
   .kmini th,.kmini td{border:1.5px solid var(--ink);width:36px;height:30px;text-align:center;font-weight:700;font-size:.85rem}
   .kmini th{background:var(--mem);font-weight:600;font-size:.75rem}
   .kmini td.one{background:var(--copper-soft)}.kmini td.zero{color:var(--muted)}
-</style>
-</head>
-<body>
+
+
+  /* --- A2 additions --- */
+  .video{display:grid;grid-template-columns:auto 1fr;gap:.2rem .7rem;align-items:baseline;border:1.5px solid var(--rule);border-left:5px solid var(--copper);border-radius:6px;background:#fff;padding:.6rem .8rem;margin:.7rem 0;font-size:.9rem}
+  .video b{color:var(--copper)}.video a{font-weight:600;color:var(--ink)}.video span{grid-column:2;color:var(--muted);font-size:.82rem}
+  .infra{display:flex;flex-wrap:wrap;gap:.5rem}.infraBox,.threat{cursor:pointer;flex:1 1 40%}
+  .tbox.on{background:var(--copper-soft);border-color:var(--copper)}
+  .tpwire{min-height:3rem;background:#fff;border:1.5px solid var(--rule);border-radius:5px;padding:.4rem .6rem;font-family:Consolas,Menlo,monospace;font-size:.82rem;margin:.5rem 0}
+  .tpev{padding:.1rem 0}.tpev.hs{color:var(--blue)}.tpev.lost{color:var(--bad)}.tpev.ok{color:var(--ok)}
+  .enc{display:grid;grid-template-columns:1fr 90px 1fr;gap:.6rem;align-items:start;margin:.6rem 0}
+  @media (max-width:700px){.enc{grid-template-columns:1fr}.wirebox{display:none}}
+  .stack2 b{display:block;font-size:.85rem;margin-bottom:.3rem}
+  .lyr{border:1.5px solid var(--rule);border-radius:5px;padding:.45rem .6rem;margin-bottom:.3rem;background:#fff;font-size:.88rem;font-weight:600;min-height:2.2rem}
+  .lyr.on{border-color:var(--copper);background:var(--copper-soft)}
+  .pdu{display:flex;flex-wrap:wrap;gap:2px;margin-top:.35rem;font-weight:500}
+  .pdu i{font-style:normal;font-size:.72rem;padding:.15rem .4rem;border-radius:3px;border:1px solid var(--ink);background:#fff}
+  .pdu .h.l1{background:var(--teal-soft);border-color:var(--teal)}.pdu .h.l2{background:var(--blue-soft);border-color:var(--blue)}.pdu .h.l3{background:#EEEDE6}.pdu .d{background:var(--copper-soft);border-color:var(--copper)}
+  .wirebox{display:flex;align-items:center;justify-content:center;height:100%;min-height:12rem;font-size:.78rem;color:var(--muted);text-align:center;border-left:2px dashed var(--rule);border-right:2px dashed var(--rule)}
+  .peers{display:flex;flex-wrap:wrap;gap:.35rem;margin:.4rem 0;min-height:2rem}
+  .peer{border:1px solid var(--rule);border-radius:4px;padding:.2rem .35rem;background:#fff;font-size:.72rem}.peer b{display:block;color:var(--muted)}
+  .pieces{display:flex;gap:2px}.pieces i{display:block;width:9px;height:12px;background:#eee;border:1px solid #ccc;border-radius:2px}.pieces i.got{background:var(--copper);border-color:var(--copper)}
+  .octets{display:flex;gap:.5rem;flex-wrap:wrap;margin:.5rem 0}.octets div{border:1.5px solid var(--blue);border-radius:5px;padding:.3rem .5rem;background:var(--blue-soft);text-align:center}.octets b{display:block;font-size:1.1rem}.octets span{font-size:.78rem}
+  .pkts{display:flex;flex-wrap:wrap;gap:.4rem;margin:.5rem 0}
+  .pkt{display:inline-flex;border:1.5px solid var(--ink);border-radius:4px;overflow:hidden;font-size:.72rem;opacity:.55}.pkt.got{opacity:1;border-color:var(--ok)}.pkt.lost{border-color:var(--bad);opacity:1}.pkt.key{opacity:1;border-style:dashed}
+  .pkt i{font-style:normal;padding:.2rem .4rem}.pkt .hd{background:var(--blue-soft)}.pkt .pl{background:var(--copper-soft);font-weight:700;font-family:Consolas,Menlo,monospace}.pkt .tr{background:#EEEDE6}
+  .threats{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:.6rem}.threat{flex:1 1 30%}
+  td.ok{color:var(--ok);font-weight:700}td.bad{color:var(--bad);font-weight:700}
+  .race{grid-template-columns:1fr 1fr}
+
+
+  .topicbar{display:flex;gap:.5rem;margin:1rem 0 .2rem;flex-wrap:wrap}
+  .topicbar button{border-radius:8px;padding:.6rem 1.2rem;font-size:1.02rem;font-weight:700;border:2px solid var(--ink);background:#fff}
+  .topicbar button.on{background:var(--copper);border-color:var(--copper);color:#fff}
+  .topicbar button span{font-weight:500;opacity:.8;margin-left:.5rem;font-size:.85rem}
+  .topicbar button.on span{opacity:.95}
+  .tabbar{flex-wrap:wrap}
+  [hidden]{display:none!important}
+</style></head><body>
 <div class="scorebar"><span>Your score</span><b id="scoreNum">0</b><span id="scoreOf">/ 0</span><div class="bar"><i id="scoreFill"></i></div><span id="scorePct">0%</span></div>
 <div class="wrap">
-<div class="tabbar noprint"><button class="on" data-tab="tabA11">A1.1 Computer hardware</button><button data-tab="tabA12">A1.2 Data &amp; logic</button><button data-tab="tabA13">A1.3 Operating &amp; control systems</button><button data-tab="tabA14">A1.4 Translation (HL)</button><button data-tab="tabSim">CPU Simulator</button></div>
+<div class="topicbar noprint"><button class="on" data-topic="A1">Topic A1 · Computer fundamentals <span id="topicScoreA1">0/0</span></button><button data-topic="A2">Topic A2 · Networks <span id="topicScoreA2">0/0</span></button></div>
+<div class="tabbar noprint" data-topic="A1"><button class="on" data-tab="tabA11">A1.1 Computer hardware</button><button data-tab="tabA12">A1.2 Data &amp; logic</button><button data-tab="tabA13">A1.3 Operating &amp; control systems</button><button data-tab="tabA14">A1.4 Translation (HL)</button><button data-tab="tabSim">CPU Simulator</button></div>
+<div class="tabbar noprint" data-topic="A2" hidden><button class="on" data-tab="tabA21">A2.1 Network fundamentals</button><button data-tab="tabA22">A2.2 Network architecture</button><button data-tab="tabA23">A2.3 Data transmission</button><button data-tab="tabA24">A2.4 Network security</button></div>
 <div class="tab" id="tabA11">
 <header class="top">
   <div class="meta">IB DP Computer Science · Topic A1.1 Computer hardware and operation · Statements A1.1.1 – A1.1.9</div>
@@ -489,8 +523,8 @@
   <div class="part-head"><div class="n">4</div><div><h2>CPU vs GPU: the race</h2><p>A CPU has a few powerful cores. A GPU has thousands of simple cores that all do the <em>same</em> instruction on different data at once. Race them at colouring a 1600-pixel picture. Run both jobs before answering.</p></div></div>
   <div class="controls"><label class="inl">Job <select id="job"><option value="same">Every pixel needs the same work</option><option value="branch">Pixels need different amounts of work (if / else)</option></select></label><button id="btnRace" class="primary">Start race</button><button id="btnRaceReset">Reset</button></div>
   <div class="race">
-    <div class="lane"><h4>Single-core CPU</h4><div class="sub">1 powerful core, one pixel at a time.</div><canvas id="c1" width="200" height="200"></canvas><div class="workers" id="w1"></div><div class="stat"><span id="t1">0</span><small>ticks</small></div></div>
-    <div class="lane"><h4>Quad-core CPU</h4><div class="sub">4 cores, each grabs the next pixel independently.</div><canvas id="c4" width="200" height="200"></canvas><div class="workers" id="w4"></div><div class="stat"><span id="t4">0</span><small>ticks</small></div></div>
+    <div class="lane"><h4>Single-core CPU</h4><div class="sub">1 powerful core, one pixel at a time.</div><canvas id="c1" width="200" height="200"></canvas><div class="workers" id="w1"></div><div class="stat"><span id="rt1">0</span><small>ticks</small></div></div>
+    <div class="lane"><h4>Quad-core CPU</h4><div class="sub">4 cores, each grabs the next pixel independently.</div><canvas id="c4" width="200" height="200"></canvas><div class="workers" id="w4"></div><div class="stat"><span id="rt4">0</span><small>ticks</small></div></div>
     <div class="lane"><h4>GPU</h4><div class="sub">64 simple cores in groups of 8. A group moves on only when all 8 finish.</div><canvas id="cg" width="200" height="200"></canvas><div class="workers" id="wg"></div><div class="stat"><span id="tg">0</span><small>ticks</small></div></div>
   </div>
   <p class="hint">Copper = busy core. Pale teal = a core waiting for the rest of its group.</p>
@@ -2274,9 +2308,261 @@ loadProgram(PROGRAMS[0]);
 
 
 </div><!-- end tabSim -->
+
+
+
+<!-- =================================================== TAB 1 =================================================== -->
+<div class="tab" id="tabA21">
+<header class="top">
+  <div class="meta">IB DP Computer Science · Topic A2 Networks · A2.1 Network fundamentals (A2.1.1 – A2.1.5)</div>
+  <h1>How computers talk to each other</h1>
+  <p class="meta">Every section has a simulation to play with, a short video to watch, and questions that mark themselves. Your first attempt counts; fix and re-check to learn. <span class="tag">HL</span> marks Higher Level content. Video links open YouTube in a new tab (internet needed for videos only – everything else works offline).</p>
+</header>
+<nav class="toc" id="tocF"></nav>
+
+<section class="part" id="f1">
+  <div class="part-head"><div class="n">1</div><div><h2>Types of network: PAN, LAN, WAN, VPN</h2><p>A network is two or more devices connected so they can share data and resources. Networks are named by how far they reach and how they are built. Click each type to see it drawn and described.</p></div></div>
+  <div class="cols">
+    <div class="panel">
+      <div class="controls" id="netTypeBtns"></div>
+      <svg id="netSvg" viewBox="0 0 640 300" style="width:100%;display:block;background:#fff;border:1px solid var(--rule);border-radius:4px"></svg>
+      <div class="story" id="netStory">Choose a network type.</div>
+    </div>
+    <div>
+      <table class="ws"><tr><th>Type</th><th>Reach</th><th>Owned by</th><th>Examples</th></tr>
+        <tr><td><b>PAN</b> personal area network</td><td>a few metres, one person</td><td>you</td><td>phone ↔ earbuds ↔ watch (Bluetooth)</td></tr>
+        <tr><td><b>LAN</b> local area network</td><td>one building or site</td><td>one organisation</td><td>school network, home Wi-Fi</td></tr>
+        <tr><td><b>WAN</b> wide area network</td><td>cities, countries, the world</td><td>many organisations / telecoms</td><td>the internet, a bank linking its branches</td></tr>
+        <tr><td><b>VPN</b> virtual private network</td><td>anywhere with internet</td><td>your organisation, over a public network</td><td>working from home on the office network</td></tr></table>
+      <div class="video"><b>▶ Watch</b><a target="_blank" rel="noopener" href="https://www.youtube.com/results?search_query=crash+course+computer+science+computer+networks+episode+28">Crash Course Computer Science #28 – Computer Networks</a><span>LANs, switches, routers and how the internet grew from them (12 min).</span></div>
+    </div>
+  </div>
+  <div class="tasks" data-sec="f1"></div>
+</section>
+
+<section class="part" id="f2">
+  <div class="part-head"><div class="n">2</div><div><h2>Modern digital infrastructure</h2><p>The internet is not one thing: it is a WAN of WANs on which other infrastructures are built. Click a block to see what it adds, its benefits and its limits.</p></div></div>
+  <div class="cols">
+    <div class="panel"><div class="infra" id="infra"></div></div>
+    <div><div class="story" id="infraStory" style="min-height:8rem">Click a block on the left.</div>
+      <div class="video"><b>▶ Watch</b><a target="_blank" rel="noopener" href="https://www.youtube.com/results?search_query=crash+course+computer+science+the+internet+episode+29">Crash Course Computer Science #29 – The Internet</a><span>Packets, IP, TCP/UDP, DNS and the layered model in 12 minutes.</span></div>
+      <div class="video"><b>▶ Watch</b><a target="_blank" rel="noopener" href="https://www.youtube.com/results?search_query=what+is+edge+computing+explained">Edge computing explained</a><span>Why processing near the sensor beats sending everything to the cloud.</span></div></div>
+  </div>
+  <div class="tasks" data-sec="f2"></div>
+</section>
+
+<section class="part" id="f3">
+  <div class="part-head"><div class="n">3</div><div><h2>Network devices</h2><p>Follow a request from a laptop to a website: each box it passes through has one job. Click a device to read its role, then press Play to watch the packet travel.</p></div></div>
+  <div class="panel">
+    <div class="controls"><button id="devPlay" class="primary">Play: laptop → website</button><button id="devReset">Reset</button><span class="hint">Click any device to read its job.</span></div>
+    <svg id="devSvg" viewBox="0 0 900 230" style="width:100%;display:block;background:#fff;border:1px solid var(--rule);border-radius:4px"></svg>
+    <div class="story" id="devStory">Click a device, or press Play.</div>
+  </div>
+  <div class="tasks" data-sec="f3"></div>
+</section>
+
+<section class="part" id="f4">
+  <div class="part-head"><div class="n">4</div><div><h2>Protocols: TCP, UDP, HTTP, HTTPS, DHCP</h2><p>A protocol is an agreed set of rules for communicating. Send a message with TCP and with UDP over an unreliable link and see how each behaves when packets go missing.</p></div></div>
+  <div class="panel">
+    <div class="controls"><label class="inl">Protocol <select id="tpProto"><option value="tcp">TCP – reliable</option><option value="udp">UDP – fast, best effort</option></select></label><label class="inl">Packet loss <input type="range" id="tpLoss" min="0" max="50" value="20"> <b id="tpLossTxt">20</b>%</label><button id="tpSend" class="primary">Send 8 packets</button></div>
+    <div class="tpwire" id="tpWire"></div>
+    <div class="statgrid" style="grid-template-columns:repeat(4,1fr)"><div><b id="tpSent">0</b><span>packets sent (incl. resends)</span></div><div><b id="tpLost">0</b><span>lost in transit</span></div><div><b id="tpRecv">0</b><span>received</span></div><div><b id="tpTime">0</b><span>time (ticks)</span></div></div>
+    <div class="story" id="tpStory">Choose a protocol and press Send.</div>
+  </div>
+  <table class="ws" style="margin-top:.8rem"><tr><th>Protocol</th><th>Layer</th><th>Job</th><th>Key facts</th></tr>
+    <tr><td><b>TCP</b> transmission control protocol</td><td>transport</td><td>reliable, ordered delivery</td><td>3-way handshake, sequence numbers, acknowledgements, resends lost packets, flow control – slower</td></tr>
+    <tr><td><b>UDP</b> user datagram protocol</td><td>transport</td><td>fast, connectionless delivery</td><td>no handshake, no resends, packets may arrive out of order or not at all – video calls, gaming, DNS, streaming</td></tr>
+    <tr><td><b>HTTP</b> hypertext transfer protocol</td><td>application</td><td>request web pages and resources</td><td>client sends GET/POST, server replies with status code (200, 404) and content; plain text – anyone on the path can read it</td></tr>
+    <tr><td><b>HTTPS</b> HTTP secure</td><td>application</td><td>HTTP inside an encrypted TLS connection</td><td>padlock; encrypts data, verifies the server's identity with a certificate; protects passwords and cards</td></tr>
+    <tr><td><b>DHCP</b> dynamic host configuration protocol</td><td>application</td><td>hand out IP addresses automatically</td><td>device broadcasts "anyone?", DHCP server offers an address, subnet mask, gateway and DNS server for a lease period</td></tr></table>
+  <div class="video"><b>▶ Watch</b><a target="_blank" rel="noopener" href="https://www.youtube.com/results?search_query=TCP+vs+UDP+explained+animation">TCP vs UDP – animated comparison</a><span>The handshake, acknowledgements and why video calls use UDP.</span></div>
+  <div class="tasks" data-sec="f4"></div>
+</section>
+
+<section class="part" id="f5">
+  <div class="part-head"><div class="n">5</div><div><h2>The TCP/IP model <span class="tag">HL</span></h2><p>Communication is split into four layers. Going down, each layer wraps the data in its own header (encapsulation); going up on the other side, each layer removes its header. Press Play to watch a web request being wrapped and unwrapped.</p></div></div>
+  <div class="panel">
+    <div class="controls"><button id="encPlay" class="primary">Play encapsulation</button><button id="encStep">Step</button><button id="encReset">Reset</button></div>
+    <div class="enc" id="enc"></div>
+    <div class="story" id="encStory">Press Play.</div>
+  </div>
+  <table class="ws" style="margin-top:.8rem"><tr><th>Layer</th><th>Job</th><th>Unit</th><th>Protocols / devices</th></tr>
+    <tr><td><b>Application</b></td><td>what the user's program wants to say</td><td>data / message</td><td>HTTP, HTTPS, DHCP, DNS, SMTP</td></tr>
+    <tr><td><b>Transport</b></td><td>get it there reliably (TCP) or quickly (UDP); ports identify the program</td><td>segment / datagram</td><td>TCP, UDP</td></tr>
+    <tr><td><b>Internet</b></td><td>address and route between networks</td><td>packet</td><td>IP, routers</td></tr>
+    <tr><td><b>Network interface (link)</b></td><td>move bits over the physical medium to the next device</td><td>frame / bits</td><td>Ethernet, Wi-Fi, MAC addresses, switches, NICs</td></tr></table>
+  <div class="tasks" data-sec="f5"></div>
+</section>
+
+<section class="part" id="f6"><div class="part-head"><div class="n">6</div><div><h2>Finish A2.1</h2></div></div>
+  <div class="result"><span>A2.1 score</span><b id="final_f">0</b><span id="finalOf_f"></span><span class="first" id="finalMsg_f">Check every section to see your total.</span></div></section>
+</div><!-- end tab1 -->
+
+<!-- =================================================== TAB 2 =================================================== -->
+<div class="tab" id="tabA22" hidden>
+<header class="top"><div class="meta">IB DP Computer Science · Topic A2 Networks · A2.2 Network architecture (A2.2.1 – A2.2.4)</div><h1>How networks are shaped and organised</h1></header>
+<nav class="toc" id="tocA"></nav>
+
+<section class="part" id="a1">
+  <div class="part-head"><div class="n">1</div><div><h2>Topologies: star, mesh, hybrid</h2><p>Topology is the pattern of connections. Build each one, then click a link (or a device) to break it and see who is cut off. Count the cables.</p></div></div>
+  <div class="panel">
+    <div class="controls"><label class="inl">Topology <select id="topoSel"><option value="star">Star</option><option value="mesh">Full mesh</option><option value="hybrid">Hybrid (two stars linked)</option></select></label><label class="inl">Devices <select id="topoN"><option>4</option><option selected>6</option><option>8</option></select></label><button id="topoRepair">Repair all</button><span class="hint">Click a link to cut it; click a device to switch it off.</span></div>
+    <svg id="topoSvg" viewBox="0 0 640 300" style="width:100%;max-width:700px;display:block;background:#fff;border:1px solid var(--rule);border-radius:4px"></svg>
+    <div class="statgrid" style="grid-template-columns:repeat(4,1fr)"><div><b id="topoLinks">0</b><span>links (cables / ports)</span></div><div><b id="topoConn">0</b><span>PCs in the largest connected group</span></div><div><b id="topoHops">0</b><span>max hops between PCs</span></div><div><b id="topoCost">–</b><span>relative cost</span></div></div>
+    <div class="story" id="topoStory"></div>
+  </div>
+  <div class="video"><b>▶ Watch</b><a target="_blank" rel="noopener" href="https://www.youtube.com/results?search_query=network+topologies+star+mesh+explained">Network topologies explained</a><span>Star vs mesh vs hybrid: reliability, speed, cost.</span></div>
+  <div class="tasks" data-sec="a1"></div>
+</section>
+
+<section class="part" id="a2">
+  <div class="part-head"><div class="n">2</div><div><h2>Servers <span class="tag">HL</span></h2><p>A server is a computer (or program) that provides a service to clients. Follow what happens when you type a web address: several different servers help before the page appears.</p></div></div>
+  <div class="panel">
+    <div class="controls"><button id="srvPlay" class="primary">Play: "I type www.school.org"</button><button id="srvStep">Step</button><button id="srvReset">Reset</button></div>
+    <div class="chain" id="srvChain"></div>
+    <div class="story" id="srvStory">Press Play.</div>
+  </div>
+  <table class="ws" style="margin-top:.8rem"><tr><th>Server</th><th>Provides</th><th>Consider</th></tr>
+    <tr><td><b>DNS</b> domain name server</td><td>turns names (school.org) into IP addresses</td><td>must be fast and highly available – everything starts with a lookup</td></tr>
+    <tr><td><b>DHCP</b> server</td><td>leases IP addresses and settings to devices joining the network</td><td>one per network; if it fails new devices cannot connect</td></tr>
+    <tr><td><b>File</b> server</td><td>central shared storage with permissions and backups</td><td>capacity, access rights, backup</td></tr>
+    <tr><td><b>Mail</b> server</td><td>sends, receives and stores email (SMTP/IMAP)</td><td>spam filtering, security, uptime</td></tr>
+    <tr><td><b>Proxy</b> server</td><td>sits between clients and the internet: caches pages, filters content, hides internal addresses</td><td>performance and security policy</td></tr>
+    <tr><td><b>Web</b> server</td><td>stores and delivers web pages over HTTP/HTTPS</td><td>scalability under heavy traffic, HTTPS certificates</td></tr></table>
+  <div class="tasks" data-sec="a2"></div>
+</section>
+
+<section class="part" id="a3">
+  <div class="part-head"><div class="n">3</div><div><h2>Client–server vs peer-to-peer</h2><p>Download the same 12-piece file two ways. In client–server everyone asks one server; in peer-to-peer every device shares the pieces it already has. Add more downloaders and watch what happens.</p></div></div>
+  <div class="panel">
+    <div class="controls"><label class="inl">Downloaders <input type="range" id="p2pN" min="2" max="12" value="4"> <b id="p2pNTxt">4</b></label><button id="p2pRun" class="primary">Run both</button><button id="p2pReset">Reset</button></div>
+    <div class="race" style="grid-template-columns:1fr 1fr"><div class="lane"><h4>Client–server</h4><div class="sub">One server, upload capacity 4 pieces per tick, shared among all clients.</div><div class="peers" id="csPeers"></div><div class="stat"><span id="csT">0</span><small>ticks to finish everyone</small></div></div>
+      <div class="lane"><h4>Peer-to-peer</h4><div class="sub">A seed gives out 2 pieces per tick; every peer also uploads 1 piece it has to another peer each tick.</div><div class="peers" id="ppPeers"></div><div class="stat"><span id="ppT">0</span><small>ticks to finish everyone</small></div></div></div>
+    <div class="story" id="p2pStory"></div>
+  </div>
+  <div class="tasks" data-sec="a3"></div>
+</section>
+
+<section class="part" id="a4">
+  <div class="part-head"><div class="n">4</div><div><h2>Network segmentation, subnetting and VLANs</h2><p>One big flat network means every broadcast reaches every device, and one infected laptop can see everything. Segmenting splits it into smaller networks. Send a broadcast and see how far it spreads.</p></div></div>
+  <div class="panel">
+    <div class="controls"><label class="inl">Network <select id="segMode"><option value="flat">One flat network</option><option value="seg">Segmented: Students / Staff / Servers (VLANs / subnets)</option></select></label><button id="segBroadcast" class="primary">Student laptop sends a broadcast</button><button id="segAttack">Infected laptop tries to reach the servers</button></div>
+    <svg id="segSvg" viewBox="0 0 900 270" style="width:100%;display:block;background:#fff;border:1px solid var(--rule);border-radius:4px"></svg>
+    <div class="story" id="segStory">Choose a network and press a button.</div>
+  </div>
+  <div class="tasks" data-sec="a4"></div>
+</section>
+
+<section class="part" id="a5"><div class="part-head"><div class="n">5</div><div><h2>Finish A2.2</h2></div></div>
+  <div class="result"><span>A2.2 score</span><b id="final_a">0</b><span id="finalOf_a"></span><span class="first" id="finalMsg_a">Check every section to see your total.</span></div></section>
+</div><!-- end tab2 -->
+
+<!-- =================================================== TAB 3 =================================================== -->
+<div class="tab" id="tabA23" hidden>
+<header class="top"><div class="meta">IB DP Computer Science · Topic A2 Networks · A2.3 Data transmissions</div><h1>Addresses, packets and routes</h1>
+<p class="meta">Section 1 (IP addressing, A2.3.1) follows the syllabus pages you supplied. Sections 2–4 cover the rest of A2.3 in the 2027 guide – packets and packet switching, how requests are processed, transmission media – please check the statement wording against your copy of the guide.</p></header>
+<nav class="toc" id="tocP"></nav>
+
+<section class="part" id="p1">
+  <div class="part-head"><div class="n">1</div><div><h2>IP addressing</h2><p>Every device on a network needs an address. IPv4 addresses are 32 bits written as four decimal numbers (0–255). IPv6 addresses are 128 bits written in hex. Some ranges are private (used inside homes and offices) and translated to one public address at the router.</p></div></div>
+  <div class="cols">
+    <div class="panel"><h3 style="margin-top:0">IPv4 inspector</h3>
+      <div class="controls"><input type="text" id="ipIn" class="mono" value="192.168.1.20" style="width:11rem"><button id="ipRandom">Random</button></div>
+      <div id="ipOut"></div></div>
+    <div class="panel"><h3 style="margin-top:0">Public, private, static, dynamic</h3>
+      <table class="ws"><tr><th>Term</th><th>Meaning</th></tr>
+        <tr><td><b>Public</b></td><td>unique on the internet; assigned by your ISP to your router</td></tr>
+        <tr><td><b>Private</b></td><td>only valid inside a LAN; ranges 10.x.x.x, 172.16–31.x.x, 192.168.x.x; NAT at the router shares one public address</td></tr>
+        <tr><td><b>Static</b></td><td>fixed, set by hand – servers, printers, routers that must always be found at the same address</td></tr>
+        <tr><td><b>Dynamic</b></td><td>leased automatically by DHCP for a period – laptops, phones, guests</td></tr>
+        <tr><td><b>IPv4</b></td><td>32-bit, about 4.3 billion addresses – ran out, hence NAT and private ranges</td></tr>
+        <tr><td><b>IPv6</b></td><td>128-bit, e.g. 2001:0db8:85a3::8a2e:0370:7334 – 3.4 × 10³⁸ addresses, built-in security and auto-configuration</td></tr></table>
+      <div class="video"><b>▶ Watch</b><a target="_blank" rel="noopener" href="https://www.youtube.com/results?search_query=IP+addresses+explained+IPv4+IPv6+public+private+NAT">IP addresses explained (IPv4, IPv6, public vs private, NAT)</a><span>Why your laptop and your neighbour's can both be 192.168.1.20.</span></div></div>
+  </div>
+  <div class="tasks" data-sec="p1"></div>
+</section>
+
+<section class="part" id="p2">
+  <div class="part-head"><div class="n">2</div><div><h2>Packets and packet switching</h2><p>Messages are chopped into packets. Each packet carries a header (addresses, sequence number), the payload (a chunk of data) and a trailer (error check). Packets can take different routes and arrive out of order; the receiver reassembles them. Send a message and watch.</p></div></div>
+  <div class="panel">
+    <div class="controls"><input type="text" id="psMsg" value="HELLO IB CS" maxlength="16" style="width:11rem"><label class="inl">Break a link <select id="psBreak"><option value="">none</option><option value="0">Route A</option><option value="1">Route B</option><option value="2">Route C</option></select></label><button id="psSend" class="primary">Send</button></div>
+    <svg id="psSvg" viewBox="0 0 900 260" style="width:100%;display:block;background:#fff;border:1px solid var(--rule);border-radius:4px"></svg>
+    <div class="pkts" id="psPkts"></div>
+    <div class="story" id="psStory">Type a message and press Send. Each packet carries 2 characters of payload.</div>
+  </div>
+  <div class="video"><b>▶ Watch</b><a target="_blank" rel="noopener" href="https://www.youtube.com/results?search_query=packet+switching+explained+animation">Packet switching explained</a><span>Why the internet chops data into packets and lets them find their own way.</span></div>
+  <div class="tasks" data-sec="p2"></div>
+</section>
+
+<section class="part" id="p3">
+  <div class="part-head"><div class="n">3</div><div><h2>Requests, DNS and how a page arrives</h2><p>Typing a web address sets off a chain of requests: DNS lookup, TCP handshake, HTTP request, response, and the browser fetching every image and script. Step through it.</p></div></div>
+  <div class="panel">
+    <div class="controls"><button id="reqPlay" class="primary">Play</button><button id="reqStep">Step</button><button id="reqReset">Reset</button></div>
+    <div class="chain" id="reqChain"></div>
+    <div class="story" id="reqStory">Press Play.</div>
+  </div>
+  <div class="tasks" data-sec="p3"></div>
+</section>
+
+<section class="part" id="p4">
+  <div class="part-head"><div class="n">4</div><div><h2>Transmission media</h2><p>Data travels as electrical pulses in copper, light in fibre, or radio waves in the air. Compare them, and see why wireless is shared while a cable is yours alone.</p></div></div>
+  <div class="panel">
+    <div class="controls"><label class="inl">Medium <select id="medSel"><option value="copper">Copper (Ethernet cable)</option><option value="fibre">Fibre optic</option><option value="wifi">Wi-Fi (radio)</option></select></label><label class="inl">Devices sharing it <input type="range" id="medN" min="1" max="10" value="1"> <b id="medNTxt">1</b></label></div>
+    <div class="statgrid" style="grid-template-columns:repeat(5,1fr)"><div><b id="medBw">–</b><span>typical bandwidth</span></div><div><b id="medEach">–</b><span>per device</span></div><div><b id="medDist">–</b><span>max distance</span></div><div><b id="medSec">–</b><span>interception risk</span></div><div><b id="medCost">–</b><span>cost / install</span></div></div>
+    <p class="hint" id="medNote"></p>
+  </div>
+  <div class="tasks" data-sec="p4"></div>
+</section>
+
+<section class="part" id="p5"><div class="part-head"><div class="n">5</div><div><h2>Finish A2.3</h2></div></div>
+  <div class="result"><span>A2.3 score</span><b id="final_p">0</b><span id="finalOf_p"></span><span class="first" id="finalMsg_p">Check every section to see your total.</span></div></section>
+</div><!-- end tab3 -->
+
+<!-- =================================================== TAB 4 =================================================== -->
+<div class="tab" id="tabA24" hidden>
+<header class="top"><div class="meta">IB DP Computer Science · Topic A2 Networks · A2.4 Network security</div><h1>Keeping the network safe</h1>
+<p class="meta">Built around the security content of the 2027 guide (firewalls, encryption, authentication, common threats) – please check statement wording against your copy of the guide.</p></header>
+<nav class="toc" id="tocN"></nav>
+
+<section class="part" id="n1">
+  <div class="part-head"><div class="n">1</div><div><h2>Firewalls</h2><p>A firewall inspects traffic and allows or blocks it according to rules – usually by address, port and direction. Write the rules for the school network, then fire packets at it.</p></div></div>
+  <div class="panel">
+    <table class="ws" id="fwRules"></table>
+    <div class="controls"><button id="fwTest" class="primary">Test all packets</button><span class="hint">Set each rule to allow or block, then test.</span></div>
+    <div id="fwOut"></div>
+  </div>
+  <div class="tasks" data-sec="n1"></div>
+</section>
+
+<section class="part" id="n2">
+  <div class="part-head"><div class="n">2</div><div><h2>Encryption: symmetric and asymmetric</h2><p>Encryption scrambles data so only someone with the right key can read it. Try a simple cipher, then watch how HTTPS uses two kinds of key together.</p></div></div>
+  <div class="cols">
+    <div class="panel"><h3 style="margin-top:0">Symmetric cipher playground</h3><p class="hint" style="margin:0 0 .4rem">Caesar shift: the same key encrypts and decrypts. Anyone who learns the key can read everything.</p>
+      <input type="text" id="encIn" value="MEET AT NOON" style="width:100%" maxlength="30"><label class="inl" style="margin:.4rem 0">Key (shift) <input type="range" id="encKey" min="1" max="25" value="3"> <b id="encKeyTxt">3</b></label>
+      <p class="mono" style="margin:.3rem 0">Ciphertext: <b id="encOut"></b></p>
+      <p class="hint">Weakness: only 25 possible keys – try them all. Real symmetric ciphers (AES) have 2¹²⁸ keys, but still need a safe way to share the key.</p></div>
+    <div class="panel"><h3 style="margin-top:0">How HTTPS shares a key safely</h3><div class="controls"><button id="tlsPlay" class="primary">Play</button><button id="tlsStep">Step</button><button id="tlsReset">Reset</button></div>
+      <div class="chain" id="tlsChain"></div><div class="story" id="tlsStory">Press Play.</div></div>
+  </div>
+  <div class="video"><b>▶ Watch</b><a target="_blank" rel="noopener" href="https://www.youtube.com/results?search_query=computerphile+public+key+cryptography">Computerphile – Public key cryptography</a><span>Why a public key can lock but not unlock.</span></div>
+  <div class="tasks" data-sec="n2"></div>
+</section>
+
+<section class="part" id="n3">
+  <div class="part-head"><div class="n">3</div><div><h2>Threats and defences</h2><p>Click a threat card to see how it works and what stops it. Then match attacks to defences.</p></div></div>
+  <div class="panel"><div class="threats" id="threats"></div><div class="story" id="threatStory">Click a threat.</div></div>
+  <div class="video"><b>▶ Watch</b><a target="_blank" rel="noopener" href="https://www.youtube.com/results?search_query=crash+course+computer+science+cybersecurity+episode+31">Crash Course Computer Science #31 – Cybersecurity</a><span>Authentication, access control, isolation and the human factor.</span></div>
+  <div class="tasks" data-sec="n3"></div>
+</section>
+
+<section class="part" id="n4"><div class="part-head"><div class="n">4</div><div><h2>Finish A2.4</h2></div></div>
+  <div class="result"><span>A2.4 score</span><b id="final_n">0</b><span id="finalOf_n"></span><span class="first" id="finalMsg_n">Check every section to see your total.</span></div>
+  <div class="task"><h4>Confidence check <small>not marked</small></h4><table class="ws" id="confA2"></table></div></section>
+</div><!-- end tab4 -->
+
+
 </div>
 <button class="print-btn noprint" onclick="window.print()">Print / save as PDF</button>
-
 <script>
 /* ===================================================================
    Tiny grading engine
@@ -2306,7 +2592,7 @@ function taskPoints(t) {
 }
 function renderTask(sec, t, n) {
   const d = document.createElement('div'); d.className = 'task'; d.id = `${sec}-t${n}`; t._el = d;
-  const num = `${sec.replace(/^[sdot]/, '')}.${n}`;
+  const num = `${sec.replace(/^[a-z]/, '')}.${n}`;
   let inner = `<h4>Task ${num}<small>${t.ref}${t.hl ? ' · HL' : ''} · ${taskPoints(t)} mark${taskPoints(t) > 1 ? 's' : ''}</small></h4><p class="prompt">${t.prompt}</p>`;
   if (t.type === 'mcq' || t.type === 'multi') {
     const type = t.type === 'mcq' ? 'radio' : 'checkbox';
@@ -2388,17 +2674,30 @@ function checkSection(id, tasks) {
   updateTotals();
 }
 function updateTotals() {
-  const sum = pre => { let tot = 0, got = 0, all = true; Object.entries(SECTIONS).forEach(([id, S]) => { if (!id.startsWith(pre)) return; tot += S.total; got += S.first ?? 0; if (!S.checked) all = false; }); return { tot, got, all }; };
-  const a = sum('s'), b = sum('d'), c3 = sum('o'), c4 = sum('t'), tot = a.tot + b.tot + c3.tot + c4.tot, got = a.got + b.got + c3.got + c4.got;
-  $('scoreNum').textContent = got; $('scoreOf').innerHTML = `/ ${tot} &nbsp;<span style="opacity:.75">A1.1 ${a.got}/${a.tot} · A1.2 ${b.got}/${b.tot} · A1.3 ${c3.got}/${c3.tot} · A1.4 ${c4.got}/${c4.tot}</span>`; $('scoreFill').style.width = tot ? (100 * got / tot) + '%' : 0; $('scorePct').textContent = tot ? Math.round(100 * got / tot) + '%' : '0%';
-  const msg = p => p >= .85 ? 'Excellent – you are ready for exam questions on this sub-topic.' : p >= .6 ? 'Good. Re-read the feedback on the sections you scored lowest and try their activities again.' : 'Go back through the sections in red; redo the activity before re-checking.';
-  $('finalScore').textContent = a.got; $('finalOf').textContent = '/ ' + a.tot + ' (first attempts)'; if (a.all && a.tot) $('finalMsg').textContent = msg(a.got / a.tot);
-  if ($('finalScore4')) { $('finalScore4').textContent = c4.got; $('finalOf4').textContent = '/ ' + c4.tot + ' (first attempts)'; if (c4.all && c4.tot) $('finalMsg4').textContent = msg(c4.got / c4.tot); }
-  if ($('finalScore3')) { $('finalScore3').textContent = c3.got; $('finalOf3').textContent = '/ ' + c3.tot + ' (first attempts)'; if (c3.all && c3.tot) $('finalMsg3').textContent = msg(c3.got / c3.tot); }
-  if ($('finalScore2')) { $('finalScore2').textContent = b.got; $('finalOf2').textContent = '/ ' + b.tot + ' (first attempts)'; if (b.all && b.tot) $('finalMsg2').textContent = msg(b.got / b.tot); }
+  const GROUPS = [
+    ['A1', [['A1.1','s','finalScore','finalOf','finalMsg'], ['A1.2','d','finalScore2','finalOf2','finalMsg2'], ['A1.3','o','finalScore3','finalOf3','finalMsg3'], ['A1.4','t','finalScore4','finalOf4','finalMsg4']]],
+    ['A2', [['A2.1','f','final_f','finalOf_f','finalMsg_f'], ['A2.2','a','final_a','finalOf_a','finalMsg_a'], ['A2.3','p','final_p','finalOf_p','finalMsg_p'], ['A2.4','n','final_n','finalOf_n','finalMsg_n']]],
+  ];
+  const sum = pre => { let tot = 0, got = 0, all = true; Object.entries(SECTIONS).forEach(([id, S]) => { if (id[0] !== pre) return; tot += S.total; got += S.first ?? 0; if (!S.checked) all = false; }); return { tot, got, all }; };
+  const msg = p => p >= .85 ? 'Excellent - you are ready for exam questions on this sub-topic.' : p >= .6 ? 'Good. Re-read the feedback on the sections you scored lowest and try their activities again.' : 'Go back through the sections in red; redo the activity before re-checking.';
+  let tot = 0, got = 0; const parts = [];
+  GROUPS.forEach(([topic, subs]) => {
+    let tt = 0, tg = 0;
+    subs.forEach(([label, pre, fs, fo, fm]) => {
+      const v = sum(pre); tt += v.tot; tg += v.got;
+      if ($(fs)) { $(fs).textContent = v.got; $(fo).textContent = '/ ' + v.tot + ' (first attempts)'; if (v.all && v.tot) $(fm).textContent = msg(v.got / v.tot); }
+    });
+    tot += tt; got += tg; parts.push(`${topic} ${tg}/${tt}`);
+    const badge = $('topicScore' + topic); if (badge) badge.textContent = `${tg}/${tt}`;
+  });
+  $('scoreNum').textContent = got;
+  $('scoreOf').innerHTML = `/ ${tot} &nbsp;<span style="opacity:.75">` + parts.join(' \u00b7 ') + `</span>`;
+  $('scoreFill').style.width = tot ? (100 * got / tot) + '%' : 0;
+  $('scorePct').textContent = tot ? Math.round(100 * got / tot) + '%' : '0%';
 }
 
 function addHeads(ts){ return ts.map(t => t.type === 'match' && !t.head ? Object.assign(t, { head: ['Item', 'Your answer'] }) : t); }
+
 /* ===================================================================
    Section 0 – whole-system map
    =================================================================== */
@@ -2633,7 +2932,7 @@ renderTasks('s3', [
    Section 4 – CPU vs GPU race
    =================================================================== */
 const N = 40, TOTAL = N * N;
-const lanes = [{ canvas: 'c1', workers: 'w1', stat: 't1', cores: 1, group: 1 }, { canvas: 'c4', workers: 'w4', stat: 't4', cores: 4, group: 1 }, { canvas: 'cg', workers: 'wg', stat: 'tg', cores: 64, group: 8 }];
+const lanes = [{ canvas: 'c1', workers: 'w1', stat: 'rt1', cores: 1, group: 1 }, { canvas: 'c4', workers: 'w4', stat: 'rt4', cores: 4, group: 1 }, { canvas: 'cg', workers: 'wg', stat: 'tg', cores: 64, group: 8 }];
 let race = null;
 const pixelColor = i => { const x = i % N, y = Math.floor(i / N); return `hsl(${(x / N * 60 + y / N * 60 + 190) % 360} 55% ${45 + 20 * Math.sin(x * .3) * Math.cos(y * .3)}%)`; };
 function initLanes() { lanes.forEach(L => { const cv = $(L.canvas), ctx = cv.getContext('2d'); ctx.fillStyle = '#F1F0EA'; ctx.fillRect(0, 0, cv.width, cv.height); $(L.workers).innerHTML = '<i></i>'.repeat(L.cores); $(L.stat).textContent = '0'; L.next = 0; L.ticks = 0; L.done = false; L.busy = new Array(L.cores).fill(0); L.pix = new Array(L.cores).fill(-1); }); }
@@ -2741,7 +3040,7 @@ renderTasks('s8', [
 /* ===================================================================
    TOC & confidence table
    =================================================================== */
-const TOC = [['s0', '0 The system map'], ['s1', '1 CPU components'], ['s2', '2 Fetch–decode–execute'], ['s3', '3 Memory & cache'], ['s4', '4 CPU vs GPU (HL)'], ['s5', '5 Pipelining (HL)'], ['s6', '6 Secondary storage'], ['s7', '7 Compression'], ['s8', '8 Cloud services']];
+const TOC = [['s0', '0 The system map'], ['s1', '1 CPU components'], ['s2', '2 Fetch–decode–execute'], ['s3', '3 Memory & cache'], ['s4', '4 CPU vs GPU'], ['s5', '5 Pipelining (HL)'], ['s6', '6 Secondary storage'], ['s7', '7 Compression'], ['s8', '8 Cloud services']];
 $('toc').innerHTML = TOC.map(([id, t]) => `<a href="#${id}" class="${t.includes('HL') ? 'hl' : ''}">${t}</a>`).join('');
 const CONF = [['A1.1.1', 'CPU components and interactions'], ['A1.1.2', 'Role of a GPU'], ['A1.1.3', 'CPU vs GPU differences (HL)'], ['A1.1.4', 'Primary memory, cache hit/miss'], ['A1.1.5', 'Fetch–decode–execute cycle'], ['A1.1.6', 'Pipelining and multi-core (HL)'], ['A1.1.7', 'Secondary storage'], ['A1.1.8', 'Compression'], ['A1.1.9', 'Cloud services']];
 $('conf').innerHTML = '<tr><th>Statement</th><th>Red</th><th>Amber</th><th>Green</th></tr>' + CONF.map(([r, t], i) => `<tr><td><b>${r}</b> ${t}</td><td><input type="radio" name="cf${i}"></td><td><input type="radio" name="cf${i}"></td><td><input type="radio" name="cf${i}"></td></tr>`).join('');
@@ -3352,8 +3651,387 @@ $('conf4').innerHTML = '<tr><th>Statement</th><th>Red</th><th>Amber</th><th>Gree
 $('simTall').onclick = () => { const f = $('simFrame'); f.style.height = f.style.height === '1400px' ? '2200px' : '1400px'; };
 $('simOpen').onclick = () => { const blob = new Blob([$('simFrame').getAttribute('srcdoc')], { type: 'text/html' }); window.open(URL.createObjectURL(blob), '_blank'); };
 
-/* ---------- tabs ---------- */
-document.querySelectorAll('.tabbar button').forEach(b => b.onclick = () => { document.querySelectorAll('.tabbar button').forEach(x => x.classList.toggle('on', x === b)); document.querySelectorAll('.tab').forEach(t => t.hidden = t.id !== b.dataset.tab); window.scrollTo({ top: 0 }); });
-</script>
-</body>
-</html>
+
+/* ================= TOPIC A2 NETWORKS ================= */
+(function(){
+/* ========================= shared helpers ========================= */
+const COL = { ink: '#1B2233', copper: '#B8702B', teal: '#1F7A72', blue: '#2F5DA8', grey: '#9aa0ad', soft: '#F3E4D3', bad: '#A0342B' };
+const node = (x, y, label, opts = {}) => `<g class="nd ${opts.cls || ''}" data-id="${opts.id ?? ''}" style="cursor:${opts.click ? 'pointer' : 'default'}"><rect x="${x - 42}" y="${y - 18}" width="84" height="36" rx="6" fill="${opts.fill || '#fff'}" stroke="${opts.stroke || COL.ink}" stroke-width="${opts.sw || 1.5}"/><text x="${x}" y="${y + 4}" text-anchor="middle" font-size="11" font-weight="700" fill="${opts.tc || COL.ink}">${label}</text></g>`;
+const line = (x1, y1, x2, y2, c = COL.grey, w = 2.5, extra = '') => `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${c}" stroke-width="${w}" ${extra}/>`;
+function stepper(ids, steps, renderFn) {
+  const st = { i: 0, timer: null }; const [playId, stepId, resetId] = ids; $(playId).dataset.label = $(playId).textContent;
+  const stop = () => { clearInterval(st.timer); st.timer = null; $(playId).textContent = $(playId).dataset.label; };
+  const step = () => { if (st.i < steps.length) { st.i++; renderFn(st.i, steps); } if (st.i >= steps.length) stop(); };
+  const reset = () => { stop(); st.i = 0; renderFn(0, steps); };
+  $(stepId).onclick = () => { stop(); step(); }; $(resetId).onclick = reset;
+  $(playId).onclick = () => { if (st.timer) return stop(); if (st.i >= steps.length) st.i = 0; $(playId).textContent = 'Pause'; step(); st.timer = setInterval(step, 2800); };
+  reset(); return st;
+}
+function chainRender(chainId, storyId, boxes, i, steps) { const on = i ? steps[i - 1][0] : []; $(chainId).innerHTML = boxes.map((b, k) => `<div class="tbox ${on.includes(k) ? 'on' : ''}">${b}</div>${k < boxes.length - 1 ? '<i>→</i>' : ''}`).join(''); $(storyId).innerHTML = i ? `<b class="step">Step ${i} of ${steps.length}</b><br>${steps[i - 1][1]}` : 'Press Play or Step.'; }
+
+/* ========================= f1 network types ========================= */
+const NETS = {
+  PAN: { title: 'Personal area network', text: 'Devices belonging to one person within a few metres, usually Bluetooth or USB. Your phone is the hub; earbuds, watch and laptop connect to it. Low power, short range, no cables.',
+    draw: () => line(320, 132, 200, 88) + line(320, 132, 440, 88) + line(320, 168, 320, 222) + node(320, 150, '📱 phone', { fill: COL.soft }) + node(200, 70, 'earbuds') + node(440, 70, 'smart watch') + node(320, 240, 'laptop') + `<circle cx="320" cy="150" r="130" fill="none" stroke="${COL.blue}" stroke-dasharray="6 5"/><text x="320" y="292" text-anchor="middle" font-size="11" fill="${COL.blue}">a few metres around one person</text>` },
+  LAN: { title: 'Local area network', text: 'All the devices in one building or site, owned and run by one organisation: a school, an office, your home. High speed (100 Mbit/s – 10 Gbit/s), connected by switches and Wi-Fi access points, with one router to the outside world.',
+    draw: () => `<rect x="60" y="20" width="520" height="255" fill="none" stroke="${COL.blue}" stroke-dasharray="6 5" rx="8"/><text x="70" y="40" font-size="11" fill="${COL.blue}">school building</text>` + line(320, 108, 150, 162) + line(320, 108, 260, 162) + line(320, 108, 380, 162) + line(320, 108, 490, 162) + line(320, 72, 320, 58) + line(490, 198, 490, 222) + node(320, 90, 'switch', { fill: COL.soft }) + node(150, 180, 'PCs') + node(260, 180, 'printer') + node(380, 180, 'file server') + node(490, 180, 'Wi-Fi AP') + node(320, 40, 'router → internet') + node(490, 240, 'laptops, phones') },
+  WAN: { title: 'Wide area network', text: 'Connects LANs across cities, countries or the whole planet using leased lines, fibre and satellite links owned by telecom companies. The internet is the biggest WAN. Slower per link than a LAN, and you do not own the wires in between.',
+    draw: () => `<ellipse cx="320" cy="150" rx="130" ry="48" fill="#EEF2F8" stroke="${COL.blue}"/><text x="320" y="154" text-anchor="middle" font-size="12" font-weight="700" fill="${COL.blue}">telecom / internet backbone</text>` + line(150, 100, 210, 125) + line(490, 100, 430, 125) + line(320, 198, 320, 222) + node(110, 90, 'London LAN', { fill: COL.soft }) + node(530, 90, 'Tokyo LAN', { fill: COL.soft }) + node(320, 240, 'Sydney LAN', { fill: COL.soft }) },
+  VPN: { title: 'Virtual private network', text: 'An encrypted "tunnel" across a public network (the internet) that makes a remote device behave as if it were plugged into the private LAN. Data inside the tunnel is unreadable to the coffee-shop Wi-Fi or the ISP. Used for remote working and for privacy.',
+    draw: () => `<ellipse cx="320" cy="150" rx="150" ry="65" fill="#EEF2F8" stroke="${COL.blue}"/><text x="320" y="98" text-anchor="middle" font-size="11" fill="${COL.blue}">public internet</text>` + `<rect x="130" y="138" width="380" height="24" rx="12" fill="${COL.copper}" opacity=".9"/><text x="320" y="155" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">encrypted tunnel 🔒</text>` + node(90, 150, 'laptop at home', { fill: COL.soft }) + node(550, 150, 'office LAN', { fill: COL.soft }) + `<text x="320" y="245" text-anchor="middle" font-size="11" fill="${COL.grey}">anyone in the middle sees only scrambled data addressed to the office</text>` },
+};
+$('netTypeBtns').innerHTML = Object.keys(NETS).map(k => `<button type="button" data-k="${k}">${k}</button>`).join('');
+$('netTypeBtns').querySelectorAll('button').forEach(b => b.onclick = () => { $('netTypeBtns').querySelectorAll('button').forEach(x => x.classList.toggle('primary', x === b)); const N = NETS[b.dataset.k]; $('netSvg').innerHTML = N.draw(); $('netStory').innerHTML = `<b class="step">${b.dataset.k} – ${N.title}</b><br>${N.text}`; });
+$('netTypeBtns').querySelector('button').click();
+
+renderTasks('f1', [
+  { type: 'match', ref: 'A2.1.1', prompt: 'PAN, LAN, WAN or VPN?', head: ['Situation', 'Network type'], options: ['PAN', 'LAN', 'WAN', 'VPN'],
+    items: [{ label: 'Your phone streams music to Bluetooth earbuds', answer: 'PAN' }, { label: 'All the computers, printers and Wi-Fi in one school building', answer: 'LAN' }, { label: 'A supermarket chain links 300 stores across the country to head office', answer: 'WAN' }, { label: 'A teacher marks work from a café and reaches the school file server through an encrypted tunnel', answer: 'VPN' }, { label: 'The internet', answer: 'WAN' }, { label: 'Your home Wi-Fi with a laptop, TV and printer', answer: 'LAN' }] },
+  { type: 'mcq', ref: 'A2.1.1', prompt: 'Which statement about LANs and WANs is correct?', options: ['A LAN is owned by one organisation and covers one site; a WAN links sites using infrastructure usually owned by telecom companies', 'A WAN is always faster than a LAN', 'A LAN must use cables and a WAN must be wireless', 'The internet is a LAN'], answer: 0, feedback: 'Ownership and geographic reach are the defining differences; speed and medium vary.' },
+  { type: 'multi', ref: 'A2.1.1', prompt: 'Why do people use a VPN? Tick all that apply.', options: ['To reach private resources on a work or school LAN from elsewhere', 'To stop others on public Wi-Fi reading their traffic', 'To make the internet connection physically faster', 'To hide their location or IP address from websites', 'To replace the need for a router'], answers: [0, 1, 3], feedback: 'A VPN encrypts and tunnels; it adds a little overhead, so it never makes a link faster.' },
+  { type: 'mcq', ref: 'A2.1.1', prompt: 'What does the "virtual" in VPN mean?', options: ['The private network is created in software over a shared public network, not with dedicated private wires', 'The network only exists in virtual reality', 'The devices are virtual machines', 'There is no encryption'], answer: 0, feedback: 'Virtual = behaves like a private network without owning the physical links.' },
+]);
+
+/* ========================= f2 infrastructure ========================= */
+const INFRA = [
+  ['The internet', 'A global network of networks using TCP/IP. Purpose: connect everything. Benefits: universal reach, open standards, resilience through many routes. Limits: no built-in security or quality guarantee; you depend on others\' infrastructure. Example: the world wide web runs on it.'],
+  ['Cloud computing', 'Renting computing, storage and software from providers over the internet (IaaS/PaaS/SaaS). Benefits: pay for what you use, scale in minutes, no hardware to maintain, access from anywhere. Limits: needs a reliable connection, data lives elsewhere (privacy, law), lock-in, ongoing cost. Example: a school\'s email and documents in Google Workspace.'],
+  ['Distributed systems', 'Many computers working together as one system, e.g. a blockchain or a search engine\'s thousands of servers. Benefits: no single point of failure, huge capacity, work near users. Limits: hard to keep copies consistent, complex to design, network delays. Example: a cryptocurrency blockchain replicated on thousands of nodes.'],
+  ['Edge computing', 'Processing data near where it is produced (a sensor, camera, phone) instead of sending it all to a data centre. Benefits: fast response (milliseconds), less bandwidth, works when the link drops, data can stay local. Limits: limited power at the edge, many devices to manage and secure. Example: smart traffic lights deciding locally when to change.'],
+  ['Mobile networks', '4G/5G cellular networks connecting phones and IoT devices through cell towers to the internet. Benefits: coverage almost everywhere, mobility, 5G low latency. Limits: shared radio capacity, data caps, coverage gaps, battery use. Example: a delivery driver\'s app updating routes on the move.'],
+];
+$('infra').innerHTML = INFRA.map((x, i) => `<div class="tbox infraBox" data-i="${i}">${x[0]}</div>`).join('');
+$('infra').querySelectorAll('.infraBox').forEach(el => el.onclick = () => { $('infra').querySelectorAll('.infraBox').forEach(x => x.classList.remove('on')); el.classList.add('on'); $('infraStory').innerHTML = `<b class="step">${INFRA[+el.dataset.i][0]}</b><br>${INFRA[+el.dataset.i][1]}`; });
+
+renderTasks('f2', [
+  { type: 'match', ref: 'A2.1.2', prompt: 'Which infrastructure is being described?', head: ['Description', 'Infrastructure'], options: INFRA.map(x => x[0]),
+    items: [{ label: 'A camera at a junction analyses traffic itself and changes the lights within milliseconds', answer: 'Edge computing' }, { label: 'A start-up rents servers by the hour and scales up on launch day', answer: 'Cloud computing' }, { label: 'A ledger copied to thousands of computers so no single one can alter it', answer: 'Distributed systems' }, { label: 'A farmer\'s soil sensors in remote fields report over 4G', answer: 'Mobile networks' }, { label: 'The network of networks that all of the above run across', answer: 'The internet' }] },
+  { type: 'match', ref: 'A2.1.2', prompt: 'Benefit or limitation of cloud computing?', head: ['Statement', 'Benefit or limitation'], options: ['benefit', 'limitation'],
+    items: [{ label: 'Capacity can grow in minutes when demand spikes', answer: 'benefit' }, { label: 'Nothing works if the internet connection fails', answer: 'limitation' }, { label: 'No servers to buy, house, cool or repair', answer: 'benefit' }, { label: 'Your data is stored under another country\'s laws', answer: 'limitation' }, { label: 'Staff can work from any device, anywhere', answer: 'benefit' }, { label: 'Moving to another provider later is difficult (lock-in)', answer: 'limitation' }] },
+  { type: 'mcq', ref: 'A2.1.2', prompt: 'A hospital wants heart monitors to raise an alarm within 10 ms even if the internet link fails. Which infrastructure fits best and why?', options: ['Edge computing – processing on or next to the monitor gives fast, local decisions that do not depend on the link', 'Cloud computing – data centres have the most powerful servers', 'Mobile networks – 5G is fast', 'The world wide web – doctors can check a web page'], answer: 0, feedback: 'Latency and independence from the link point to edge processing; the cloud can still receive a copy later.' },
+  { type: 'multi', ref: 'A2.1.2', prompt: 'The guide gives examples of places where specific networks are used. Which of these are among them?', options: ['The world wide web', 'Cryptocurrency blockchains', 'Smart traffic lights', 'A school', 'A pocket calculator'], answers: [0, 1, 2, 3], feedback: 'Each is a different kind of network in action: WAN-scale web, distributed blockchain, edge-based traffic control, and a LAN.' },
+]);
+
+/* ========================= f3 devices ========================= */
+const DEVS = [
+  ['NIC', 'Network interface card', 'The hardware in every device that connects it to the network (Ethernet port or Wi-Fi radio). Has a unique MAC address. Layer: network interface.'],
+  ['Wireless AP', 'Wireless access point', 'Turns Wi-Fi radio signals into wired network traffic and back, so laptops and phones can join the LAN. Layer: network interface.'],
+  ['Switch', 'Switch', 'Connects devices inside a LAN. Learns which MAC address is on which port and sends each frame only to the right port (unlike an old hub, which sent everything everywhere). Layer: network interface.'],
+  ['Firewall', 'Hardware firewall', 'Inspects traffic entering and leaving the network and blocks anything that breaks the rules (by address, port, protocol). Works at internet/transport layers (and application layer in modern models).'],
+  ['Router', 'Router', 'Connects different networks (your LAN to the internet). Reads the destination IP address of each packet and chooses the next hop. Also does NAT and usually runs DHCP at home. Layer: internet.'],
+  ['Modem', 'Modem', 'Modulates/demodulates: converts the digital signal from the router into the form the ISP\'s line uses (fibre light, cable, DSL) and back. Layer: network interface / physical.'],
+  ['Gateway', 'Gateway', 'Any device that joins two networks that use different protocols or rules, translating between them – your home router is the "default gateway" for your LAN. Can work at any layer up to application.'],
+  ['Web server', 'Web server', 'The destination: a computer running software that answers HTTP/HTTPS requests with pages. Application layer.'],
+];
+const DX = [60, 170, 280, 390, 500, 610, 720, 840];
+let devTimer = null, devI = 0; const devStop = () => { clearInterval(devTimer); devTimer = null; };
+function devRender(active = -1, pkt = null) { let s = ''; for (let i = 0; i < DEVS.length - 1; i++) s += line(DX[i] + 42, 120, DX[i + 1] - 42, 120, pkt !== null && i < pkt ? COL.copper : COL.grey, 3);
+  s += `<rect x="12" y="160" width="450" height="46" rx="6" fill="none" stroke="${COL.blue}" stroke-dasharray="5 4"/><text x="237" y="190" text-anchor="middle" font-size="11" fill="${COL.blue}">inside the LAN</text><rect x="470" y="160" width="418" height="46" rx="6" fill="none" stroke="${COL.teal}" stroke-dasharray="5 4"/><text x="679" y="190" text-anchor="middle" font-size="11" fill="${COL.teal}">out across the internet</text><text x="60" y="70" text-anchor="middle" font-size="11" fill="${COL.grey}">laptop</text><text x="840" y="70" text-anchor="middle" font-size="11" fill="${COL.grey}">website</text>`;
+  DEVS.forEach((d, i) => s += node(DX[i], 120, d[0], { id: i, click: true, fill: active === i ? COL.soft : (i === 0 || i === 7 ? '#EEF2F8' : '#fff'), stroke: active === i ? COL.copper : COL.ink, sw: active === i ? 3 : 1.5 }));
+  if (pkt !== null) s += `<circle cx="${DX[pkt]}" cy="88" r="11" fill="${COL.copper}"/><text x="${DX[pkt]}" y="92" text-anchor="middle" font-size="11" fill="#fff" font-weight="700">📦</text>`;
+  $('devSvg').innerHTML = s; $('devSvg').querySelectorAll('.nd').forEach(g => g.onclick = () => { devStop(); const i = +g.dataset.id; devRender(i); $('devStory').innerHTML = `<b class="step">${DEVS[i][1]}</b><br>${DEVS[i][2]}`; }); }
+const DEVSTEPS = ['The laptop\'s NIC (its Wi-Fi radio) turns the request into radio frames with the laptop\'s MAC address.', 'The wireless access point receives the radio frames and passes them onto the wired LAN.', 'The switch reads the destination MAC address and forwards the frame only to the port leading to the router – not to every device.', 'The firewall checks the rules: outgoing web traffic on port 443 is allowed, so it passes.', 'The router reads the destination IP address, replaces the laptop\'s private address with the school\'s public one (NAT) and sends the packet towards the internet.', 'The modem converts the digital signal into light pulses for the ISP\'s fibre.', 'On the far side, the website\'s gateway/firewall/router accepts traffic for the server and translates between networks as needed.', 'The web server receives the HTTP request and sends the page back along the reverse path.'];
+$('devPlay').onclick = () => { devStop(); devI = 0; const tick = () => { devRender(devI, devI); $('devStory').innerHTML = `<b class="step">${devI + 1}. ${DEVS[devI][1]}</b><br>${DEVSTEPS[devI]}`; devI++; if (devI >= DEVS.length) devStop(); }; tick(); devTimer = setInterval(tick, 2200); };
+$('devReset').onclick = () => { devStop(); devRender(); $('devStory').textContent = 'Click a device, or press Play.'; }; devRender();
+
+renderTasks('f3', [
+  { type: 'match', ref: 'A2.1.3', prompt: 'Which device does each job?', head: ['Job', 'Device'], options: ['NIC', 'wireless access point', 'switch', 'hardware firewall', 'router', 'modem', 'gateway'],
+    items: [{ label: 'Forwards frames inside the LAN only to the port where the destination MAC address lives', answer: 'switch' }, { label: 'Chooses the next hop for a packet based on its destination IP address; joins the LAN to the internet', answer: 'router' }, { label: 'Converts the network\'s digital signal to the form used on the ISP\'s line (fibre / cable / DSL)', answer: 'modem' }, { label: 'Blocks or allows traffic according to security rules', answer: 'hardware firewall' }, { label: 'Lets laptops and phones join the wired LAN over Wi-Fi', answer: 'wireless access point' }, { label: 'The card or chip inside each device with a unique MAC address', answer: 'NIC' }, { label: 'Translates between two networks that use different protocols; the exit point of a LAN', answer: 'gateway' }] },
+  { type: 'match', ref: 'A2.1.3', prompt: 'Which TCP/IP layer does each device mainly work at?', head: ['Device', 'Layer'], options: ['network interface', 'internet', 'transport', 'application'],
+    items: [{ label: 'Switch (uses MAC addresses)', answer: 'network interface' }, { label: 'Router (uses IP addresses)', answer: 'internet' }, { label: 'NIC', answer: 'network interface' }, { label: 'Wireless access point', answer: 'network interface' }, { label: 'Web server software answering HTTP', answer: 'application' }], feedback: 'Frames and MACs = network interface layer; packets and IPs = internet layer; ports = transport; the programs themselves = application.' },
+  { type: 'order', ref: 'A2.1.3', prompt: 'Order the devices a request passes through from a school laptop to the internet.', items: ['Laptop\'s NIC', 'Wireless access point', 'Switch', 'Firewall', 'Router', 'Modem'], feedback: 'NIC → AP → switch → firewall → router → modem → ISP. (Firewall and router are often one box at home.)' },
+  { type: 'mcq', ref: 'A2.1.3', prompt: 'Why is a switch better than an old-fashioned hub?', options: ['It learns which MAC address is on which port and sends each frame only there, so traffic is faster, less congested and harder to snoop on', 'It converts Wi-Fi to cables', 'It assigns IP addresses', 'It encrypts all traffic'], answer: 0, feedback: 'A hub repeated everything to every port; a switch delivers frames like addressed letters.' },
+]);
+
+/* ========================= f4 TCP vs UDP ========================= */
+$('tpLoss').oninput = e => $('tpLossTxt').textContent = e.target.value;
+let tpTimer = null;
+$('tpSend').onclick = () => {
+  clearInterval(tpTimer); const proto = $('tpProto').value, loss = +$('tpLoss').value / 100, N = 8; const wire = $('tpWire'); let sent = 0, lost = 0, t = 0; const recvd = new Set(), queue = [...Array(N).keys()], log = [];
+  const finish = () => { clearInterval(tpTimer); $('tpTime').textContent = t; $('tpRecv').textContent = proto === 'tcp' ? `${recvd.size}/8 ✓ in order` : `${recvd.size}/8${recvd.size < N ? ' (gaps)' : ''}`;
+    $('tpStory').innerHTML = proto === 'tcp' ? `<b class="step">TCP:</b> every lost packet was noticed (no acknowledgement came back) and resent, so the receiver ended with all 8 packets in the right order – but it took ${t} ticks and ${sent} transmissions. Reliable, slower. Good for web pages, email, files.` : `<b class="step">UDP:</b> 8 packets fired in 8 ticks, ${lost} lost and never resent. The receiver got ${recvd.size} of 8 and must cope with the gaps – fine for a video call (a dropped frame is not worth waiting for), useless for a file. Fast, best effort.`; };
+  if (proto === 'tcp') { log.push('<div class="tpev hs">handshake: SYN → · ← SYN-ACK · ACK → (connection open)</div>'); t = 3; }
+  wire.innerHTML = log.join('');
+  tpTimer = setInterval(() => { if (!queue.length) return finish(); t++; const i = queue.shift(); sent++; if (Math.random() < loss) { lost++; log.push(`<div class="tpev lost">packet ${i + 1} → ✗ lost${proto === 'tcp' ? ' — no ACK arrives, resend queued' : ''}</div>`); if (proto === 'tcp') queue.push(i); } else { recvd.add(i); log.push(`<div class="tpev ok">packet ${i + 1} → ✓ received${proto === 'tcp' ? ' · ← ACK ' + (i + 1) : ''}</div>`); }
+    wire.innerHTML = log.slice(-9).join(''); $('tpSent').textContent = sent; $('tpLost').textContent = lost; $('tpRecv').textContent = recvd.size + '/8'; $('tpTime').textContent = t; }, 350);
+};
+
+renderTasks('f4', [
+  { type: 'match', ref: 'A2.1.4', prompt: 'Which protocol is at work?', head: ['Situation', 'Protocol'], options: ['TCP', 'UDP', 'HTTP', 'HTTPS', 'DHCP'],
+    items: [{ label: 'Your phone joins the school Wi-Fi and is automatically given an IP address', answer: 'DHCP' }, { label: 'A browser asks a server for a page and gets back "200 OK" and the HTML, unencrypted', answer: 'HTTP' }, { label: 'A padlock shows; your card details are encrypted on the way to the shop', answer: 'HTTPS' }, { label: 'A video call drops a frame rather than pausing to resend it', answer: 'UDP' }, { label: 'A file download arrives complete and in order even though some packets were lost on the way', answer: 'TCP' }, { label: 'An online game sends your position 60 times a second and never waits for acknowledgements', answer: 'UDP' }] },
+  { type: 'mcq', ref: 'A2.1.4', prompt: 'In the simulator with 20% loss, TCP always delivered 8/8 but took longer. What mechanisms make TCP reliable?', options: ['Sequence numbers so the receiver can order packets, acknowledgements for each one, and resending any packet whose ACK does not arrive', 'Sending every packet twice', 'Encrypting every packet', 'Using a faster cable'], answer: 0, feedback: 'Plus a handshake to open the connection and flow control so the sender does not overwhelm the receiver.' },
+  { type: 'mcq', ref: 'A2.1.4', prompt: 'Why do video calls and online games use UDP rather than TCP?', options: ['Low delay matters more than perfect delivery: waiting for a resent packet would freeze the call, whereas a missing frame is barely noticed', 'UDP is more secure', 'UDP packets are bigger', 'TCP cannot carry video'], answer: 0, feedback: 'Choice of transport protocol = choosing between reliability and speed.' },
+  { type: 'mcq', ref: 'A2.1.4', prompt: 'What extra does HTTPS give compared with HTTP?', options: ['Encryption of the data in transit and a certificate proving the server is who it claims to be', 'Faster downloads', 'Web pages with more colours', 'Nothing – the S is decorative'], answer: 0, feedback: 'HTTPS = HTTP over TLS. Without it, anyone on the path (café Wi-Fi, ISP) can read or alter the page.' },
+  { type: 'order', ref: 'A2.1.4', prompt: 'Order the DHCP conversation when a laptop joins a network.', items: ['Laptop broadcasts: "Is there a DHCP server? I need an address" (DISCOVER)', 'DHCP server replies with an offered address and settings (OFFER)', 'Laptop asks to use that offer (REQUEST)', 'Server confirms and records the lease (ACKNOWLEDGE)', 'Laptop uses the address until the lease expires, then renews'], feedback: 'Discover → Offer → Request → Acknowledge. Without DHCP every device would need an address typed in by hand.' },
+]);
+
+/* ========================= f5 encapsulation (HL) ========================= */
+const ENC_STEPS = [
+  [[0], 'Application layer: the browser creates the message – an HTTP GET request for /index.html.'],
+  [[1], 'Transport layer: TCP adds a header with source and destination port numbers (e.g. 52000 → 443) and a sequence number. The unit is now a <b>segment</b>.'],
+  [[2], 'Internet layer: IP adds a header with source and destination IP addresses. The unit is a <b>packet</b>. Routers will read only this header.'],
+  [[3], 'Network interface layer: Ethernet/Wi-Fi adds a header with MAC addresses for the next hop and a trailer with an error check. The unit is a <b>frame</b>, sent as bits.'],
+  [[3], 'The frame crosses the link. At the server the network interface layer checks the error code and strips its header and trailer.'],
+  [[2], 'The internet layer reads the IP header: "this packet is for me", strips it and passes the segment up.'],
+  [[1], 'The transport layer reads the port (443 → the web server program), checks the sequence number, sends an ACK, strips the header.'],
+  [[0], 'The application layer – the web server software – receives the original HTTP request and prepares the reply, which goes down the layers the same way.'],
+];
+const LAYERS = ['Application', 'Transport (TCP)', 'Internet (IP)', 'Network interface'];
+function encRender(i) { const side = i >= 5; const k0 = i ? ENC_STEPS[i - 1][0][0] : -1;
+  const pdu = k => { const parts = []; if (k >= 3) parts.push('<i class="h l3">Eth</i>'); if (k >= 2) parts.push('<i class="h l2">IP</i>'); if (k >= 1) parts.push('<i class="h l1">TCP</i>'); parts.push('<i class="d">HTTP GET /index.html</i>'); if (k >= 3) parts.push('<i class="h l3">FCS</i>'); return parts.join(''); };
+  const leftK = !side ? k0 : -1, rightK = side ? k0 : -1;
+  $('enc').innerHTML = `<div class="stack2"><b>Laptop (sending)</b>${LAYERS.map((l, k) => `<div class="lyr l${k} ${k === leftK ? 'on' : ''}">${l}${k === leftK ? `<div class="pdu">${pdu(k)}</div>` : ''}</div>`).join('')}</div><div class="wirebox"><span>${i === 5 ? '→ bits on the wire →' : i > 5 ? '✓' : ''}</span></div><div class="stack2"><b>Web server (receiving)</b>${LAYERS.map((l, k) => `<div class="lyr l${k} ${k === rightK ? 'on' : ''}">${l}${k === rightK ? `<div class="pdu">${pdu(k)}</div>` : ''}</div>`).join('')}</div>`;
+  $('encStory').innerHTML = i ? `<b class="step">Step ${i} of ${ENC_STEPS.length}</b><br>${ENC_STEPS[i - 1][1]}` : 'Press Play or Step.'; }
+stepper(['encPlay', 'encStep', 'encReset'], ENC_STEPS, encRender);
+
+renderTasks('f5', [
+  { type: 'order', ref: 'A2.1.5', hl: true, prompt: 'Order the TCP/IP layers from the top (closest to the user) to the bottom (the wire).', items: ['Application', 'Transport', 'Internet', 'Network interface'], feedback: 'A memory aid: "All Transport Is Necessary".' },
+  { type: 'match', ref: 'A2.1.5', hl: true, prompt: 'Which layer is responsible?', head: ['Responsibility', 'Layer'], options: ['application', 'transport', 'internet', 'network interface'],
+    items: [{ label: 'Adding source and destination IP addresses and routing between networks', answer: 'internet' }, { label: 'Port numbers, sequence numbers, acknowledgements, resending', answer: 'transport' }, { label: 'MAC addresses, framing, error check, putting bits on the medium', answer: 'network interface' }, { label: 'HTTP, HTTPS, DHCP, DNS – the rules of the program\'s conversation', answer: 'application' }, { label: 'Choosing between reliable (TCP) and fast (UDP) delivery', answer: 'transport' }] },
+  { type: 'mcq', ref: 'A2.1.5', hl: true, prompt: 'What is encapsulation?', options: ['Each layer wraps the data from the layer above in its own header (and possibly trailer); the receiving side removes them in reverse order', 'Compressing data before sending', 'Encrypting data with HTTPS', 'Splitting a network into VLANs'], answer: 0, feedback: 'Frame ⊃ packet ⊃ segment ⊃ data – like an envelope inside an envelope.' },
+  { type: 'mcq', ref: 'A2.1.5', hl: true, prompt: 'Why is splitting communication into layers useful?', options: ['Each layer does one job and can be changed independently – Wi-Fi can replace Ethernet, or UDP replace TCP, without rewriting the web browser', 'It makes packets smaller', 'It removes the need for routers', 'Layers make the network faster'], answer: 0, feedback: 'Layers interact only through defined interfaces, which is why so many different technologies interoperate on one internet.' },
+  { type: 'mcq', ref: 'A2.1.5', hl: true, prompt: 'A router in the middle of the internet needs to forward a packet. Which header does it read?', options: ['The IP header (internet layer) – it does not look inside at ports or data', 'The HTTP request', 'The TCP port numbers', 'All headers, every time'], answer: 0, feedback: 'Routers work at the internet layer; the MAC header is replaced at every hop; TCP and HTTP are only looked at by the endpoints.' },
+]);
+
+/* ========================= a1 topologies ========================= */
+const tst = { cut: new Set(), off: new Set() };
+function topoBuild() { const type = $('topoSel').value, n = +$('topoN').value; const nodes = [], links = [];
+  const ring = (cx, cy, r, count, start) => { for (let i = 0; i < count; i++) { const a = -Math.PI / 2 + i * 2 * Math.PI / count; nodes.push({ x: cx + r * Math.cos(a), y: cy + r * Math.sin(a), label: 'PC ' + (start + i + 1), pc: true }); } };
+  if (type === 'star') { nodes.push({ x: 320, y: 160, label: 'switch', hub: true }); ring(320, 160, 115, n, 0); for (let i = 1; i <= n; i++) links.push([0, i]); }
+  if (type === 'mesh') { ring(320, 160, 120, n, 0); for (let i = 0; i < n; i++) for (let j = i + 1; j < n; j++) links.push([i, j]); }
+  if (type === 'hybrid') { const h = Math.ceil(n / 2); nodes.push({ x: 170, y: 160, label: 'switch A', hub: true }); ring(170, 160, 90, h, 0); const a = nodes.length; nodes.push({ x: 470, y: 160, label: 'switch B', hub: true }); ring(470, 160, 90, n - h, h); for (let i = 1; i <= h; i++) links.push([0, i]); for (let i = a + 1; i < nodes.length; i++) links.push([a, i]); links.push([0, a]); }
+  return { nodes, links }; }
+function topoRender() { const { nodes, links } = topoBuild(); const type = $('topoSel').value;
+  const alive = links.filter((l, k) => !tst.cut.has(k) && !tst.off.has(l[0]) && !tst.off.has(l[1]));
+  const adj = nodes.map(() => []); alive.forEach(([a, b]) => { adj[a].push(b); adj[b].push(a); });
+  const dist = s => { const d = new Array(nodes.length).fill(-1); if (tst.off.has(s)) return d; d[s] = 0; const q = [s]; while (q.length) { const u = q.shift(); adj[u].forEach(v => { if (d[v] < 0 && !tst.off.has(v)) { d[v] = d[u] + 1; q.push(v); } }); } return d; };
+  const pcs = nodes.map((nd, i) => nd.pc ? i : -1).filter(i => i >= 0 && !tst.off.has(i)); let maxH = 0;
+  pcs.forEach(p => { const d = dist(p); pcs.forEach(q => { if (d[q] > maxH) maxH = d[q]; }); });
+  const biggest = Math.max(0, ...pcs.map(p => dist(p).filter((v, i) => v >= 0 && nodes[i].pc).length));
+  let s = links.map(([a, b], k) => { const cut = tst.cut.has(k); return `<line class="lk" data-k="${k}" x1="${nodes[a].x}" y1="${nodes[a].y}" x2="${nodes[b].x}" y2="${nodes[b].y}" stroke="${cut ? COL.bad : COL.grey}" stroke-width="${cut ? 2 : 4}" ${cut ? 'stroke-dasharray="6 5"' : ''} style="cursor:pointer"/>`; }).join('');
+  nodes.forEach((nd, i) => { const off = tst.off.has(i); const isolated = nd.pc && !off && pcs.length > 1 && pcs.every(q => q === i || dist(i)[q] < 0); s += `<g class="tn" data-i="${i}" style="cursor:pointer"><circle cx="${nd.x}" cy="${nd.y}" r="${nd.hub ? 24 : 20}" fill="${off ? '#ddd' : isolated ? '#F7E1DE' : nd.hub ? COL.soft : '#fff'}" stroke="${off ? '#999' : isolated ? COL.bad : COL.ink}" stroke-width="1.8"/><text x="${nd.x}" y="${nd.y + 4}" text-anchor="middle" font-size="10" font-weight="700" fill="${off ? '#999' : COL.ink}">${nd.label}</text></g>`; });
+  $('topoSvg').innerHTML = s; $('topoSvg').querySelectorAll('.lk').forEach(l => l.onclick = () => { const k = +l.dataset.k; tst.cut.has(k) ? tst.cut.delete(k) : tst.cut.add(k); topoRender(); }); $('topoSvg').querySelectorAll('.tn').forEach(g => g.onclick = () => { const i = +g.dataset.i; tst.off.has(i) ? tst.off.delete(i) : tst.off.add(i); topoRender(); });
+  $('topoLinks').textContent = links.length; $('topoConn').textContent = `${biggest} of ${pcs.length}`; $('topoHops').textContent = maxH > 0 ? maxH : '–'; $('topoCost').textContent = { star: 'low', mesh: 'very high', hybrid: 'medium' }[type];
+  const notes = { star: 'Star: every PC has one cable to the switch. Cheap and easy to add devices; a broken cable cuts off only that PC – but switch off the switch and everything stops (single point of failure).', mesh: `Full mesh: every device links to every other – ${links.length} links for ${nodes.length} devices (n(n−1)/2). Cut any link and traffic still flows another way; extremely reliable but expensive in cables and ports, so used for backbones and wireless mesh, not desktops.`, hybrid: 'Hybrid: two stars joined by a link (like two departments or floors). Scales well and isolates faults to one star – but cut the inter-switch link and the two halves cannot talk.' };
+  $('topoStory').innerHTML = `<b class="step">${type[0].toUpperCase() + type.slice(1)}</b><br>${notes[type]}${tst.cut.size || tst.off.size ? `<br><span style="color:var(--bad)">${tst.cut.size} link(s) cut, ${tst.off.size} device(s) off → ${biggest} of ${pcs.length} PCs can still reach each other.</span>` : ''}`; }
+$('topoSel').onchange = () => { tst.cut.clear(); tst.off.clear(); topoRender(); }; $('topoN').onchange = $('topoSel').onchange; $('topoRepair').onclick = $('topoSel').onchange; topoRender();
+
+renderTasks('a1', [
+  { type: 'match', ref: 'A2.2.1', prompt: 'Star, mesh or hybrid?', head: ['Statement', 'Topology'], options: ['star', 'mesh', 'hybrid'],
+    items: [{ label: 'Every device connects to one central switch', answer: 'star' }, { label: 'Every device connects directly to every other device', answer: 'mesh' }, { label: 'Two or more topologies combined, e.g. several stars linked together', answer: 'hybrid' }, { label: 'Fails completely if the central device fails', answer: 'star' }, { label: 'Needs n(n−1)/2 links for n devices', answer: 'mesh' }, { label: 'Used for the backbone of the internet and for wireless mesh Wi-Fi at home', answer: 'mesh' }] },
+  { type: 'number', ref: 'A2.2.1', prompt: 'Set the simulator to full mesh with 8 devices. How many links are needed?', answer: 28, feedback: '8 × 7 ÷ 2 = 28. Compare with 8 for a star of 8 PCs.' },
+  { type: 'mcq', ref: 'A2.2.1', prompt: 'In the star topology, switch off the switch. What happens, and what does this tell you?', options: ['Every PC is cut off – the central device is a single point of failure, so it should be reliable and perhaps duplicated', 'Only one PC is cut off', 'The PCs keep talking directly', 'Nothing – switches are optional in a star'], answer: 0, feedback: 'Reliability is one of the factors the guide lists: reliability, transmission speed, scalability, data collisions, cost.' },
+  { type: 'match', ref: 'A2.2.1', prompt: 'Which topology wins on each factor?', head: ['Factor', 'Best'], options: ['star', 'mesh'],
+    items: [{ label: 'Lowest cost in cable and ports', answer: 'star' }, { label: 'Keeps working when any single link is cut', answer: 'mesh' }, { label: 'Easiest to add one more device', answer: 'star' }, { label: 'Most alternative paths, so least congestion / collisions on any one link', answer: 'mesh' }] },
+  { type: 'mcq', ref: 'A2.2.1', prompt: 'A small office of six people versus a hospital campus with 3 000 devices. Which is the better pairing?', options: ['Office: a single star – cheap, simple, one switch. Hospital: hybrid – many stars per ward/building, linked by a redundant (partly meshed) backbone for reliability and scalability', 'Both: full mesh', 'Office: full mesh; hospital: single star', 'Both: a single star with one switch'], answer: 0, feedback: 'Match the topology to reliability needs, scale and budget, as the guide\'s examples (home/small office vs corporations, government, campuses) suggest.' },
+]);
+
+/* ========================= a2 servers (HL) ========================= */
+const SRV_BOXES = ['Laptop', 'DHCP server', 'DNS server', 'Proxy server', 'Web server', 'File / mail servers'];
+const SRV_STEPS = [[[0, 1], 'Before anything: when the laptop joined the network, the <b>DHCP server</b> leased it an IP address, the gateway address and the address of a DNS server.'], [[0, 2], 'You type www.school.org. The laptop asks the <b>DNS server</b> "what is the IP address of www.school.org?" and gets back 203.0.113.10. Without DNS you would have to remember numbers.'], [[0, 3], 'The school routes web traffic through a <b>proxy server</b>: it checks the site against the filter policy, and if it has a recent copy of the page cached it can answer immediately, saving bandwidth.'], [[3, 4], 'The proxy forwards the HTTP request to the <b>web server</b> at 203.0.113.10, which returns the page. The proxy passes it back to the laptop and keeps a copy.'], [[0, 5], 'Meanwhile the page is a school portal: your saved essay comes from the <b>file server</b> and the notification you see was delivered by the <b>mail server</b>. Different servers, different jobs, all responding to clients.']];
+stepper(['srvPlay', 'srvStep', 'srvReset'], SRV_STEPS, (i, steps) => chainRender('srvChain', 'srvStory', SRV_BOXES, i, steps));
+
+renderTasks('a2', [
+  { type: 'match', ref: 'A2.2.2', hl: true, prompt: 'Which server does each job?', head: ['Job', 'Server'], options: ['DNS server', 'DHCP server', 'file server', 'mail server', 'proxy server', 'web server'],
+    items: [{ label: 'Converts www.school.org into an IP address', answer: 'DNS server' }, { label: 'Leases IP addresses to devices joining the network', answer: 'DHCP server' }, { label: 'Stores shared documents with permissions and backups', answer: 'file server' }, { label: 'Delivers web pages over HTTP/HTTPS', answer: 'web server' }, { label: 'Filters and caches web traffic between the LAN and the internet', answer: 'proxy server' }, { label: 'Sends, receives and stores email', answer: 'mail server' }] },
+  { type: 'match', ref: 'A2.2.2', hl: true, prompt: 'Function, scalability, reliability or security? Which factor is each decision mainly about?', head: ['Decision', 'Factor'], options: ['function', 'scalability', 'reliability', 'security'],
+    items: [{ label: 'Adding a second DNS server so lookups still work if one fails', answer: 'reliability' }, { label: 'Putting the web server behind a firewall in its own network segment', answer: 'security' }, { label: 'Choosing a web server that can add more machines behind a load balancer on results day', answer: 'scalability' }, { label: 'Deciding that the school needs a proxy to filter content', answer: 'function' }] },
+  { type: 'mcq', ref: 'A2.2.2', hl: true, prompt: 'Why might a school use a proxy server?', options: ['To apply a content-filtering policy, cache popular pages to save bandwidth, log usage and hide internal addresses from the internet', 'To hand out IP addresses', 'To store students\' files', 'To replace the router'], answer: 0, feedback: 'The proxy is a controlled single exit point for web traffic.' },
+  { type: 'mcq', ref: 'A2.2.2', hl: true, prompt: 'If the DHCP server fails at 8 am, what is the effect?', options: ['Devices already holding a lease keep working, but new devices (and expiring leases) cannot get an address and cannot join the network', 'The internet stops for everyone instantly', 'Web pages load without images', 'Email is delayed'], answer: 0, feedback: 'This is why reliability planning – a backup DHCP server or long leases – matters.' },
+]);
+
+/* ========================= a3 client-server vs P2P ========================= */
+const P2P_PIECES = 12; $('p2pN').oninput = e => $('p2pNTxt').textContent = e.target.value; let p2pTimer = null;
+function peersHtml(id, have) { $(id).innerHTML = have.map((h, i) => `<div class="peer"><b>${id === 'csPeers' ? 'client' : 'peer'} ${i + 1}</b><div class="pieces">${Array.from({ length: P2P_PIECES }, (_, k) => `<i class="${h.has(k) ? 'got' : ''}"></i>`).join('')}</div></div>`).join(''); }
+$('p2pRun').onclick = () => { clearInterval(p2pTimer); const N = +$('p2pN').value; const cs = Array.from({ length: N }, () => new Set()), pp = Array.from({ length: N }, () => new Set()); let tcs = 0, tpp = 0, dcs = false, dpp = false; peersHtml('csPeers', cs); peersHtml('ppPeers', pp); $('csT').textContent = 0; $('ppT').textContent = 0; $('p2pStory').textContent = '';
+  p2pTimer = setInterval(() => {
+    if (!dcs) { tcs++; let cap = 4; for (let round = 0; round < 4 && cap > 0; round++) for (let i = 0; i < N && cap > 0; i++) { if (cs[i].size < P2P_PIECES) { cs[i].add(cs[i].size); cap--; } } if (cs.every(s => s.size === P2P_PIECES)) dcs = true; $('csT').textContent = tcs; peersHtml('csPeers', cs); }
+    if (!dpp) { tpp++; let seed = 2; for (let i = 0; i < N && seed > 0; i++) { const need = [...Array(P2P_PIECES).keys()].filter(k => !pp[i].has(k)); if (need.length) { pp[i].add(need[Math.floor(Math.random() * need.length)]); seed--; } }
+      const before = pp.map(s => new Set(s)); for (let i = 0; i < N; i++) { if (!before[i].size) continue; const targets = [...Array(N).keys()].filter(j => j !== i && [...before[i]].some(k => !pp[j].has(k))); if (!targets.length) continue; const j = targets[Math.floor(Math.random() * targets.length)]; const give = [...before[i]].filter(k => !pp[j].has(k)); pp[j].add(give[Math.floor(Math.random() * give.length)]); }
+      if (pp.every(s => s.size === P2P_PIECES)) dpp = true; $('ppT').textContent = tpp; peersHtml('ppPeers', pp); }
+    if (dcs && dpp) { clearInterval(p2pTimer); $('p2pStory').innerHTML = `<b class="step">With ${N} downloaders:</b> client–server took <b>${tcs}</b> ticks, peer-to-peer <b>${tpp}</b>. The server's upload is a fixed bottleneck shared by everyone, so client–server time grows with the number of clients; in P2P every new peer brings upload capacity, so the swarm gets faster. But P2P depends on peers staying online, is harder to secure and control, and no one is responsible for the data – which is why banks use client–server and file-sharing / blockchain use P2P.`; }
+  }, 300); };
+$('p2pReset').onclick = () => { clearInterval(p2pTimer); $('csPeers').innerHTML = $('ppPeers').innerHTML = ''; $('csT').textContent = $('ppT').textContent = 0; $('p2pStory').textContent = ''; };
+
+renderTasks('a3', [
+  { type: 'match', ref: 'A2.2.3', prompt: 'Client–server or peer-to-peer?', head: ['Statement', 'Model'], options: ['client–server', 'peer-to-peer'],
+    items: [{ label: 'A central machine holds the data and answers requests; clients only ask', answer: 'client–server' }, { label: 'Every device both asks for and supplies data; no central machine', answer: 'peer-to-peer' }, { label: 'Easy to back up, secure and control from one place', answer: 'client–server' }, { label: 'Gets faster as more users join, since each brings capacity', answer: 'peer-to-peer' }, { label: 'A single point of failure and a bottleneck when very busy', answer: 'client–server' }, { label: 'Depends on other users staying online; harder to enforce rules', answer: 'peer-to-peer' }] },
+  { type: 'match', ref: 'A2.2.3', prompt: 'Which model does each application mainly use?', head: ['Application', 'Model'], options: ['client–server', 'peer-to-peer'],
+    items: [{ label: 'Web browsing', answer: 'client–server' }, { label: 'Online banking', answer: 'client–server' }, { label: 'BitTorrent file sharing', answer: 'peer-to-peer' }, { label: 'A cryptocurrency blockchain', answer: 'peer-to-peer' }, { label: 'Email through Gmail', answer: 'client–server' }, { label: 'A VoIP call where two phones connect directly once they have found each other', answer: 'peer-to-peer' }] },
+  { type: 'mcq', ref: 'A2.2.3', prompt: 'In the simulator, why does client–server slow down as you add downloaders while P2P does not?', options: ['The server\'s upload capacity is fixed and shared; in P2P each new peer adds upload capacity as soon as it holds a piece', 'P2P uses faster cables', 'The server runs out of storage', 'Clients in client–server cannot download at the same time'], answer: 0, feedback: 'Scalability is the great strength of P2P; control and security are the strengths of client–server.' },
+  { type: 'mcq', ref: 'A2.2.3', prompt: 'A bank chooses client–server for online banking. Which reason is strongest?', options: ['Data must be held and controlled centrally so it can be secured, audited, backed up and kept consistent', 'Client–server is cheaper for very large numbers of users', 'Peer-to-peer cannot use encryption', 'Banks are required to use one server'], answer: 0, feedback: 'The benefits and drawbacks of each model decide which suits a real application.' },
+]);
+
+/* ========================= a4 segmentation ========================= */
+const SEG_GROUPS = [['Students', 60, ['S1', 'S2', 'S3', 'S4']], ['Staff', 340, ['T1', 'T2', 'T3']], ['Servers', 620, ['file', 'DB', 'grades']]];
+function segRender(hi = new Set(), blocked = new Set(), attack = false) { const seg = $('segMode').value === 'seg'; let s = '';
+  if (!seg) s += `<rect x="50" y="20" width="810" height="210" rx="8" fill="#F7F7F4" stroke="${COL.grey}" stroke-dasharray="6 5"/><text x="70" y="40" font-size="12" font-weight="700">one flat network · 10.0.0.0/22 · everyone can see everyone</text>`;
+  SEG_GROUPS.forEach(([g, x, devs], gi) => { if (seg) s += `<rect x="${x}" y="20" width="240" height="210" rx="8" fill="${['#EEF2F8', '#EDE3F5', '#E2EFDA'][gi]}" stroke="${COL.blue}"/><text x="${x + 10}" y="40" font-size="12" font-weight="700">${g} VLAN · 10.0.${gi + 1}.0/24</text>`; else s += `<text x="${x + 10}" y="60" font-size="11" fill="${COL.grey}">${g}</text>`;
+    devs.forEach((d, k) => { const px = x + 45 + k * 55, py = 120; s += line(px, py + 18, x + 120, 190, '#ccc', 1.5) + `<circle cx="${px}" cy="${py}" r="18" fill="${hi.has(d) ? COL.soft : blocked.has(d) ? '#F7E1DE' : '#fff'}" stroke="${hi.has(d) ? COL.copper : blocked.has(d) ? COL.bad : COL.ink}" stroke-width="1.8"/><text x="${px}" y="${py + 4}" text-anchor="middle" font-size="10" font-weight="700">${d}</text>`; }); s += `<rect x="${x + 90}" y="190" width="60" height="22" rx="4" fill="#fff" stroke="${COL.ink}"/><text x="${x + 120}" y="205" text-anchor="middle" font-size="10">switch</text>`; });
+  s += line(180, 212, 410, 248, '#bbb', 1.5) + line(460, 212, 450, 240, '#bbb', 1.5) + line(740, 212, 490, 248, '#bbb', 1.5) + `<rect x="400" y="240" width="100" height="22" rx="4" fill="${COL.soft}" stroke="${COL.ink}"/><text x="450" y="255" text-anchor="middle" font-size="10" font-weight="700">${seg ? 'router + firewall' : 'router'}</text>`;
+  if (attack) s += `<text x="105" y="88" text-anchor="middle" font-size="18">☠</text>`; $('segSvg').innerHTML = s; }
+$('segMode').onchange = () => { segRender(); $('segStory').textContent = 'Press a button.'; };
+$('segBroadcast').onclick = () => { const seg = $('segMode').value === 'seg'; const all = SEG_GROUPS.flatMap(g => g[2]); segRender(new Set(seg ? SEG_GROUPS[0][2] : all)); $('segStory').innerHTML = seg ? '<b class="step">Segmented:</b> the broadcast (e.g. "who has IP 10.0.1.9?") reaches only the 4 devices in the Students VLAN. Routers do not forward broadcasts, so staff and servers are undisturbed. Less congestion, more efficient use of bandwidth.' : `<b class="step">Flat network:</b> the broadcast reaches all ${all.length} devices, including the servers. With hundreds of devices, constant broadcasts (ARP, DHCP, discovery) eat bandwidth and every device must process them.`; };
+$('segAttack').onclick = () => { const seg = $('segMode').value === 'seg'; segRender(new Set(['S1']), new Set(seg ? SEG_GROUPS[2][2] : []), true); $('segStory').innerHTML = seg ? '<b class="step">Segmented:</b> S1\'s traffic to the Servers subnet must pass the router/firewall between segments, which allows only specific ports from the Students VLAN – the attempt to reach the grades database is <b>blocked</b>. Segmentation contains the damage.' : '<b class="step">Flat network:</b> S1 is on the same network as the grades database and can talk to it directly, with no checkpoint in between. One infected laptop can scan and attack everything.'; };
+segRender();
+
+renderTasks('a4', [
+  { type: 'match', ref: 'A2.2.4', prompt: 'Match the term to its meaning.', head: ['Term', 'Meaning'], options: ['dividing one large network into smaller parts for performance and security', 'splitting an IP address range into smaller ranges, each a separate network', 'a logical network created on switches so devices on different ports or floors behave as one separate LAN'],
+    items: [{ label: 'Segmentation', answer: 'dividing one large network into smaller parts for performance and security' }, { label: 'Subnetting', answer: 'splitting an IP address range into smaller ranges, each a separate network' }, { label: 'VLAN', answer: 'a logical network created on switches so devices on different ports or floors behave as one separate LAN' }] },
+  { type: 'multi', ref: 'A2.2.4', prompt: 'Which are benefits of segmenting the school network into Students, Staff and Servers? Tick all that apply.', options: ['Broadcasts stay inside their own segment, reducing congestion', 'An infected student laptop cannot reach the servers directly', 'Bandwidth and resources can be managed per group (e.g. priority for staff)', 'Fewer switches are needed', 'Different rules can be applied at the boundary between segments', 'The internet becomes faster for everyone in the world'], answers: [0, 1, 2, 4], feedback: 'Performance, security and manageability. Segmentation does not reduce hardware or change the wider internet.' },
+  { type: 'mcq', ref: 'A2.2.4', prompt: 'In the simulator, why did the broadcast stop at the segment boundary?', options: ['Routers do not forward broadcasts; each VLAN/subnet is its own broadcast domain', 'Broadcasts are too weak to travel far', 'The switch blocks all traffic', 'The students\' devices were off'], answer: 0, feedback: 'Traffic between segments must go through the router (layer 3), where rules can be applied.' },
+  { type: 'mcq', ref: 'A2.2.4', prompt: 'How can a VLAN put a staff laptop in Room 12 and one in Room 40 on the same logical network even though they plug into different switches?', options: ['Switches tag frames with a VLAN ID, so any port assigned to the Staff VLAN is treated as part of that network regardless of physical location', 'By running a very long cable between the rooms', 'By giving them the same MAC address', 'It is not possible'], answer: 0, feedback: 'VLANs separate the logical network from the physical wiring.' },
+]);
+
+/* ========================= d1 IP addressing ========================= */
+function ipRender() { const v = $('ipIn').value.trim(); const parts = v.split('.'); const ok = parts.length === 4 && parts.every(p => /^\d+$/.test(p) && +p <= 255); if (!ok) { $('ipOut').innerHTML = '<p class="hint">Enter four numbers 0–255 separated by dots.</p>'; return; } const n = parts.map(Number); const priv = n[0] === 10 || (n[0] === 172 && n[1] >= 16 && n[1] <= 31) || (n[0] === 192 && n[1] === 168); const special = n[0] === 127 ? 'loopback (this computer)' : n[0] >= 224 ? 'multicast / reserved' : n[0] === 169 && n[1] === 254 ? 'link-local (DHCP failed)' : '';
+  $('ipOut').innerHTML = `<div class="octets">${n.map(o => `<div><b>${o}</b><span class="mono">${o.toString(2).padStart(8, '0')}</span></div>`).join('')}</div><p style="margin:.4rem 0">32 bits · 4 octets · <b>${priv ? 'PRIVATE address' : special ? special.toUpperCase() : 'PUBLIC address'}</b> ${priv ? '– valid only inside a LAN; the router translates it (NAT) to a public address' : special ? '' : '– routable on the internet, must be unique'}.</p><p class="hint">Network part / host part depend on the subnet mask, e.g. with /24 the first three octets identify the network (${n.slice(0, 3).join('.')}.0) and the last identifies this device (${n[3]}).</p>`; }
+$('ipIn').oninput = ipRender; $('ipRandom').onclick = () => { const pool = ['10.0.5.77', '172.20.1.3', '192.168.0.101', '8.8.8.8', '203.0.113.42', '151.101.1.140', '127.0.0.1', '169.254.3.9']; $('ipIn').value = pool[Math.floor(Math.random() * pool.length)]; ipRender(); }; ipRender();
+
+renderTasks('p1', [
+  { type: 'match', ref: 'A2.3.1', prompt: 'Public or private IPv4 address?', head: ['Address', 'Type'], options: ['private', 'public'],
+    items: [{ label: '192.168.1.50', answer: 'private' }, { label: '8.8.8.8', answer: 'public' }, { label: '10.20.30.40', answer: 'private' }, { label: '172.16.5.5', answer: 'private' }, { label: '203.0.113.9', answer: 'public' }, { label: '172.40.1.1', answer: 'public' }], feedback: 'Private ranges: 10.0.0.0–10.255.255.255, 172.16.0.0–172.31.255.255, 192.168.0.0–192.168.255.255.' },
+  { type: 'match', ref: 'A2.3.1', prompt: 'Static or dynamic address?', head: ['Device', 'Best choice'], options: ['static', 'dynamic (DHCP)'],
+    items: [{ label: 'The school\'s file server that every PC is configured to find', answer: 'static' }, { label: 'A visitor\'s phone joining the guest Wi-Fi', answer: 'dynamic (DHCP)' }, { label: 'The office printer other devices connect to by address', answer: 'static' }, { label: 'Student laptops that come and go all day', answer: 'dynamic (DHCP)' }, { label: 'The router itself (the default gateway)', answer: 'static' }] },
+  { type: 'text', ref: 'A2.3.1', prompt: 'Use the inspector. Write the binary of the last octet of 192.168.1.20, and the decimal value of the octet 11000000.', items: [{ label: 'Last octet of 192.168.1.20 in binary (8 bits)', answer: ['00010100'] }, { label: '11000000 in decimal', answer: ['192'] }] },
+  { type: 'mcq', ref: 'A2.3.1', prompt: 'Why can your laptop and your neighbour\'s laptop both have the address 192.168.1.20 without a clash?', options: ['Private addresses are only meaningful inside each LAN; each router uses NAT to map them to its own unique public address on the internet', 'IP addresses do not need to be unique', 'Laptops use MAC addresses instead', 'IPv6 solved this in 1998'], answer: 0, feedback: 'NAT and private ranges are the workaround that kept IPv4 alive after its 4.3 billion addresses ran out.' },
+  { type: 'mcq', ref: 'A2.3.1', prompt: 'What are the main advantages of IPv6 over IPv4?', options: ['A vastly larger address space (128-bit), so every device can have a unique public address without NAT, plus built-in features for security and automatic configuration', 'Shorter addresses that are easier to type', 'It is not connected to the internet, so it is more secure', 'It only uses decimal numbers'], answer: 0, feedback: '2¹²⁸ ≈ 3.4 × 10³⁸ addresses versus 2³² ≈ 4.3 × 10⁹.' },
+  { type: 'mcq', ref: 'A2.3.1', prompt: 'Which is a valid IPv6 address?', options: ['2001:0db8:85a3::8a2e:0370:7334', '192.168.300.1', '256.1.1.1', '2001.db8.85a3'], answer: 0, feedback: 'IPv6 uses eight groups of four hex digits separated by colons; :: replaces a run of zero groups.' },
+]);
+
+/* ========================= d2 packet switching ========================= */
+const PS_ROUTES = [[[180, 60], [450, 60], [720, 60]], [[180, 130], [450, 130], [720, 130]], [[180, 200], [450, 200], [720, 200]]];
+function psDraw(pkts = [], broken = '') { let s = '';
+  PS_ROUTES.forEach((r, ri) => { const bad = String(ri) === broken; const c = bad ? COL.bad : COL.grey; s += line(102, 130, r[0][0] - 18, r[0][1], c, 2) + line(r[0][0] + 18, r[0][1], r[1][0] - 18, r[1][1], c, 2, bad ? 'stroke-dasharray="6 5"' : '') + line(r[1][0] + 18, r[1][1], r[2][0] - 18, r[2][1], c, 2) + line(r[2][0] + 18, r[2][1], 798, 130, c, 2); r.forEach(([x, y]) => s += `<circle cx="${x}" cy="${y}" r="18" fill="#fff" stroke="${c}" stroke-width="1.5"/><text x="${x}" y="${y + 4}" text-anchor="middle" font-size="9">router</text>`); s += `<text x="140" y="${r[0][1] - 24}" font-size="10" fill="${c}">Route ${'ABC'[ri]}${bad ? ' – link down' : ''}</text>`; });
+  s += node(60, 130, 'sender', { fill: COL.soft }) + node(840, 130, 'receiver', { fill: COL.soft });
+  pkts.forEach(p => s += `<g><rect x="${p.x - 16}" y="${p.y - 10}" width="32" height="20" rx="3" fill="${p.lost ? COL.bad : COL.copper}"/><text x="${p.x}" y="${p.y + 4}" text-anchor="middle" font-size="10" font-weight="700" fill="#fff">#${p.seq}</text></g>`); $('psSvg').innerHTML = s; }
+let psTimer = null;
+$('psSend').onclick = () => { clearInterval(psTimer); const msg = ($('psMsg').value.toUpperCase() || 'HELLO'); const broken = $('psBreak').value; const chunks = []; for (let i = 0; i < msg.length; i += 2) chunks.push(msg.slice(i, i + 2)); const N = chunks.length;
+  const pk = chunks.map((c, i) => ({ seq: i + 1, payload: c, route: i % 3, t: -i * 0.5, done: false, lost: false, speed: 0.04 + Math.random() * 0.05 })); const arrived = [];
+  const pathPt = (route, u) => { const pts = [[102, 130], ...PS_ROUTES[route], [798, 130]]; const seg = Math.min(3, Math.floor(u * 4)), f = u * 4 - seg; const [x1, y1] = pts[seg], [x2, y2] = pts[seg + 1]; return { x: x1 + (x2 - x1) * f, y: y1 + (y2 - y1) * f }; };
+  const pktHtml = () => '<div class="pkt key"><i class="hd">header</i><i class="pl">payload</i><i class="tr">trailer</i></div>' + pk.map(p => `<div class="pkt ${p.lost ? 'lost' : arrived.includes(p.seq) ? 'got' : ''}"><i class="hd">to: receiver · from: sender · seq ${p.seq}/${N}</i><i class="pl">${p.payload}</i><i class="tr">✓chk</i></div>`).join('');
+  psTimer = setInterval(() => { const moving = []; pk.forEach(p => { if (p.done) return; p.t += p.speed; if (p.t < 0) return; if (String(p.route) === broken && p.t > 0.35 && !p.lost && !p.rerouted) { p.lost = true; p.lostAt = pathPt(p.route, 0.35); } if (p.lost) { if (p.t > 0.9) { p.lost = false; p.rerouted = true; p.route = (p.route + 1) % 3; if (String(p.route) === broken) p.route = (p.route + 1) % 3; p.t = 0; } else moving.push({ ...p.lostAt, seq: p.seq, lost: true }); return; } if (p.t >= 1) { p.done = true; arrived.push(p.seq); return; } moving.push({ ...pathPt(p.route, p.t), seq: p.seq }); });
+    psDraw(moving, broken); $('psPkts').innerHTML = pktHtml(); const order = arrived.join(', '); const reassembled = arrived.slice().sort((a, b) => a - b).map(sq => pk[sq - 1].payload).join('');
+    $('psStory').innerHTML = `<b class="step">Message split into ${N} packets</b>, each with a header (addresses, sequence number), 2 characters of payload and a trailer (error check). Arrival order so far: <span class="mono">${order || '–'}</span> → reassembled by sequence number: <span class="mono">${reassembled}</span>${broken !== '' ? ' · Route ' + 'ABC'[+broken] + ' is down, so its packets are resent via another route.' : ''}`;
+    if (pk.every(p => p.done)) { clearInterval(psTimer); $('psStory').innerHTML += `<br><b>Complete.</b> Packets took different routes and arrived out of order (${order}); the receiver used the sequence numbers to rebuild "${reassembled}". No single path was needed – that is packet switching.`; } }, 60); };
+psDraw();
+
+renderTasks('p2', [
+  { type: 'match', ref: 'A2.3', prompt: 'Which part of a packet holds each item?', head: ['Item', 'Part'], options: ['header', 'payload', 'trailer'],
+    items: [{ label: 'Destination IP address', answer: 'header' }, { label: 'The chunk of the message itself', answer: 'payload' }, { label: 'Sequence number (packet 3 of 7)', answer: 'header' }, { label: 'Error-check value so corruption can be detected', answer: 'trailer' }, { label: 'Source IP address', answer: 'header' }] },
+  { type: 'order', ref: 'A2.3', prompt: 'Order the steps of packet switching.', items: ['The message is split into packets and each gets a header (addresses, sequence number) and trailer', 'Each router reads the destination address and forwards the packet along the best currently available link', 'Packets may take different routes and arrive out of order', 'The receiver checks each packet for errors and asks for damaged or missing ones again (TCP)', 'The receiver reassembles the packets in sequence-number order to rebuild the message'], feedback: 'Split → route independently → arrive in any order → check → reassemble.' },
+  { type: 'mcq', ref: 'A2.3', prompt: 'In the simulator you broke Route B. What happened to its packets and why is this a strength of packet switching?', options: ['They were resent along another route, because routers choose the best available path for each packet – the network keeps working when links fail', 'The whole message was lost', 'The sender had to wait for the link to be repaired', 'The packets arrived faster'], answer: 0, feedback: 'Resilience through redundancy is the reason the internet was designed around packet switching.' },
+  { type: 'multi', ref: 'A2.3', prompt: 'Why split a message into packets at all? Tick all valid reasons.', options: ['Many conversations can share the same links, interleaving their packets', 'A single error only requires one small packet to be resent, not the whole message', 'Packets can be routed around congestion or failures', 'Packets make the message shorter', 'Large files would otherwise block a link for everyone else'], answers: [0, 1, 2, 4], feedback: 'Packets add header overhead, so the total is slightly bigger, not shorter.' },
+  { type: 'number', ref: 'A2.3', prompt: 'A 1 500-character message is sent in packets carrying 100 characters of payload each. How many packets are needed?', answer: 15, feedback: '1 500 ÷ 100 = 15. Each also carries a header and trailer, so more than 1 500 characters travel in total.' },
+]);
+
+/* ========================= d3 requests ========================= */
+const REQ_BOXES = ['Browser', 'DNS server', 'Web server', 'Image / script servers'];
+const REQ_STEPS = [[[0, 1], 'You type <b>www.school.org</b>. The browser asks the DNS server for the IP address (over UDP – a quick single question). Answer: 203.0.113.10.'], [[0, 2], 'The browser opens a TCP connection to 203.0.113.10 on port 443 (three-way handshake) and negotiates TLS encryption – the padlock.'], [[0, 2], 'It sends an HTTP request: <span class="mono">GET /index.html</span>. The request travels as packets through your router, ISP and the internet backbone.'], [[2, 0], 'The web server replies <span class="mono">200 OK</span> with the HTML. The browser starts reading it.'], [[0, 3], 'The HTML refers to images, stylesheets and scripts – some on other servers. The browser sends more requests (often in parallel) and each server responds.'], [[0], 'The browser assembles everything and draws the page. Total: tens of requests, hundreds of packets, typically under a second.']];
+stepper(['reqPlay', 'reqStep', 'reqReset'], REQ_STEPS, (i, steps) => chainRender('reqChain', 'reqStory', REQ_BOXES, i, steps));
+
+renderTasks('p3', [
+  { type: 'order', ref: 'A2.3', prompt: 'Order what happens when you type a web address and press Enter.', items: ['DNS lookup turns the name into an IP address', 'TCP connection opened to the server (handshake) and TLS negotiated', 'HTTP GET request sent for the page', 'Server responds 200 OK with the HTML', 'Browser requests images, stylesheets and scripts referenced by the page', 'Browser renders the complete page'], feedback: 'Name → address → connection → request → response → more requests → render.' },
+  { type: 'match', ref: 'A2.3', prompt: 'Match each HTTP status code to its meaning.', head: ['Code', 'Meaning'], options: ['success – here is the resource', 'page not found', 'server error', 'redirect – look somewhere else'],
+    items: [{ label: '200', answer: 'success – here is the resource' }, { label: '404', answer: 'page not found' }, { label: '500', answer: 'server error' }, { label: '301', answer: 'redirect – look somewhere else' }] },
+  { type: 'mcq', ref: 'A2.3', prompt: 'Why is DNS often called "the phone book of the internet"?', options: ['It maps human-friendly names to the numeric IP addresses routers actually use, so people never have to remember numbers', 'It stores everyone\'s phone numbers', 'It lists every web page', 'It assigns IP addresses to laptops'], answer: 0, feedback: 'DNS lookups typically use UDP because a single small question/answer does not need a connection.' },
+  { type: 'mcq', ref: 'A2.3', prompt: 'A page loads its HTML quickly but its images appear slowly. Which explanation fits the request cycle best?', options: ['Each image is a separate request, possibly to a different, slower server; the HTML arrives first because it is requested first', 'HTML uses UDP and images use TCP', 'Images are not sent as packets', 'The DNS server is drawing the images'], answer: 0, feedback: 'One page = many requests; performance depends on every server involved.' },
+]);
+
+/* ========================= d4 media ========================= */
+const MED = { copper: { bw: 1000, dist: '100 m', sec: 'low – must tap the cable', cost: 'low', note: 'Twisted-pair copper (Cat 6): cheap, easy, reliable inside a building; suffers interference and distance limits. Each device has its own cable to the switch, so bandwidth is not shared with neighbours.' }, fibre: { bw: 10000, dist: 'tens of km', sec: 'very low – hard to tap', cost: 'high', note: 'Glass fibre carrying light: enormous bandwidth, very long distances, immune to electrical interference; expensive to install and terminate. Used for backbones, between buildings and by ISPs.' }, wifi: { bw: 600, dist: '30–50 m indoors', sec: 'higher – signal is in the air', cost: 'low, no cabling', note: 'Radio waves: no cables, mobility, but the air is a shared medium – every device on the access point shares its capacity, walls and interference reduce it, and anyone in range can capture the signal, so encryption (WPA) is essential.' } };
+function medRender() { const m = MED[$('medSel').value], n = +$('medN').value; $('medNTxt').textContent = n; const shared = $('medSel').value === 'wifi'; $('medBw').textContent = m.bw >= 1000 ? (m.bw / 1000) + ' Gbit/s' : m.bw + ' Mbit/s'; const each = shared ? m.bw / n : m.bw; $('medEach').textContent = each >= 1000 ? (each / 1000).toFixed(1) + ' Gbit/s' : Math.round(each) + ' Mbit/s'; $('medDist').textContent = m.dist; $('medSec').textContent = m.sec; $('medCost').textContent = m.cost; $('medNote').innerHTML = m.note + (shared ? ` <b>With ${n} devices sharing this access point each gets about ${Math.round(each)} Mbit/s.</b>` : ' <b>A cable is dedicated: each device keeps the full speed however many are connected to the switch.</b>'); }
+$('medSel').onchange = medRender; $('medN').oninput = medRender; medRender();
+
+renderTasks('p4', [
+  { type: 'match', ref: 'A2.3', prompt: 'Copper, fibre or wireless?', head: ['Statement', 'Medium'], options: ['copper', 'fibre optic', 'wireless'],
+    items: [{ label: 'Carries data as pulses of light over tens of kilometres', answer: 'fibre optic' }, { label: 'Shared medium – everyone on the access point divides the bandwidth', answer: 'wireless' }, { label: 'Cheap, dedicated link from a desktop PC to the switch, up to about 100 m', answer: 'copper' }, { label: 'Anyone in range can capture the signal, so encryption is essential', answer: 'wireless' }, { label: 'Immune to electrical interference; used for building-to-building links', answer: 'fibre optic' }] },
+  { type: 'mcq', ref: 'A2.3', prompt: 'In the simulator, 10 devices on Wi-Fi each got a tenth of the bandwidth, but 10 devices on copper kept full speed. Why?', options: ['Radio is a shared medium – all devices on one access point take turns on the same channel – whereas each cable is a dedicated point-to-point link to a switch port', 'Copper is always faster than radio', 'Wi-Fi devices are further away', 'Switches compress data'], answer: 0, feedback: 'This is why busy classrooms feel slow on Wi-Fi and why exam halls sometimes use cables.' },
+  { type: 'mcq', ref: 'A2.3', prompt: 'A school wants to link two buildings 800 m apart with the fastest, most reliable connection. Which medium?', options: ['Fibre optic – distance and bandwidth far beyond copper, immune to interference and lightning-induced surges', 'Copper Ethernet – cheapest', 'Wi-Fi – no digging needed', 'Bluetooth'], answer: 0, feedback: 'Copper Ethernet is limited to about 100 m per run; Wi-Fi over 800 m is unreliable.' },
+]);
+
+/* ========================= n1 firewall ========================= */
+const FW_RULES = [['Incoming', 'internet', 'port 80/443 to the school web server', 'allow'], ['Incoming', 'internet', 'port 22 (remote login) to any device', 'block'], ['Incoming', 'internet', 'port 3306 (database) to the database server', 'block'], ['Outgoing', 'students', 'port 443 (HTTPS) to the internet', 'allow'], ['Outgoing', 'students', 'port 25 (sending email directly)', 'block'], ['Outgoing', 'any', 'port 53 (DNS) to the school DNS server', 'allow']];
+const FW_PKTS = [['Visitor loading the school website', 'Incoming · port 443 to web server', 0, true], ['Attacker trying to log in to the file server', 'Incoming · port 22', 1, false], ['Bot scanning for the database', 'Incoming · port 3306', 2, false], ['Student browsing a revision site', 'Outgoing · student · port 443', 3, true], ['Malware on a student laptop sending spam', 'Outgoing · student · port 25', 4, false], ['Laptop looking up a website name', 'Outgoing · port 53 to DNS', 5, true]];
+$('fwRules').innerHTML = '<tr><th>Direction</th><th>From</th><th>Traffic</th><th>Your rule</th></tr>' + FW_RULES.map((r, i) => `<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td><td><select data-i="${i}"><option value="">choose…</option><option>allow</option><option>block</option></select></td></tr>`).join('');
+$('fwTest').onclick = () => { const rules = [...$('fwRules').querySelectorAll('select')].map(s => s.value); $('fwOut').innerHTML = '<table class="ws" style="margin-top:.5rem"><tr><th>Packet</th><th>Matches rule</th><th>Your firewall</th><th>Should be</th></tr>' + FW_PKTS.map(p => { const yours = rules[p[2]]; const want = p[3] ? 'allow' : 'block'; const ok = yours === want; return `<tr><td>${p[0]}</td><td>${p[1]}</td><td class="${yours ? (ok ? 'ok' : 'bad') : ''}">${yours ? yours + (ok ? ' ✓' : ' ✗') : '(no rule set)'}</td><td>${want} – ${p[3] ? 'legitimate traffic' : 'a threat'}</td></tr>`; }).join('') + '</table><p class="hint">A firewall is only as good as its rules: too loose lets attacks in, too strict breaks legitimate services. Most firewalls end with "block everything else".</p>'; };
+
+renderTasks('n1', [
+  { type: 'match', ref: 'A2.4', prompt: 'Allow or block? Decide as the school\'s firewall.', head: ['Traffic', 'Rule'], options: ['allow', 'block'],
+    items: [{ label: 'Incoming HTTPS to the school\'s public web server', answer: 'allow' }, { label: 'Incoming remote-login attempts from the internet to any device', answer: 'block' }, { label: 'Incoming connections from the internet directly to the database', answer: 'block' }, { label: 'Students browsing HTTPS websites', answer: 'allow' }, { label: 'A student laptop sending email directly on port 25 (spam behaviour)', answer: 'block' }, { label: 'Everything not covered by any rule', answer: 'block' }] },
+  { type: 'mcq', ref: 'A2.4', prompt: 'What does a firewall examine to decide whether to let a packet through?', options: ['Source and destination addresses, port numbers / protocol and direction, compared against a list of rules (modern ones also inspect application content)', 'The spelling of the message', 'The colour of the cable', 'Only the size of the packet'], answer: 0, feedback: 'Rules are checked in order; the first match decides.' },
+  { type: 'mcq', ref: 'A2.4', prompt: 'Where should the school place its main firewall?', options: ['At the boundary between the LAN and the internet (and additionally between internal segments), so all traffic crossing the boundary is checked', 'On one student\'s laptop only', 'On the web server only', 'Nowhere – the router is enough'], answer: 0, feedback: 'Hardware firewall at the perimeter, software firewalls on hosts, and filtering between segments – layers of defence.' },
+]);
+
+/* ========================= n2 encryption ========================= */
+function caesar() { const k = +$('encKey').value; $('encKeyTxt').textContent = k; $('encOut').textContent = $('encIn').value.toUpperCase().replace(/[A-Z]/g, ch => String.fromCharCode((ch.charCodeAt(0) - 65 + k) % 26 + 65)); }
+$('encIn').oninput = caesar; $('encKey').oninput = caesar; caesar();
+const TLS_BOXES = ['Browser', 'Web server'];
+const TLS_STEPS = [[[0, 1], 'The browser connects and the server sends its <b>certificate</b> containing its <b>public key</b>, signed by a trusted authority. The browser checks the signature – so it knows it really is talking to the bank, not an impostor.'], [[0], 'The browser invents a random <b>session key</b> (a symmetric key, like a very long Caesar shift) that only it knows so far.'], [[0, 1], 'The browser encrypts the session key with the server\'s <b>public key</b> and sends it. Anyone can lock with a public key, but only the matching <b>private key</b> can unlock – and only the server has that.'], [[1], 'The server decrypts with its private key. Now both sides share the session key and nobody else can have it, even though they exchanged it over the public internet.'], [[0, 1], 'From here on all data is encrypted with the fast symmetric session key – asymmetric to exchange the key, symmetric for the bulk data. This is TLS, the S in HTTPS.']];
+stepper(['tlsPlay', 'tlsStep', 'tlsReset'], TLS_STEPS, (i, steps) => chainRender('tlsChain', 'tlsStory', TLS_BOXES, i, steps));
+
+renderTasks('n2', [
+  { type: 'text', ref: 'A2.4', prompt: 'Using the Caesar cipher with key 3, encrypt <span class="mono">HELP</span>. Then decrypt <span class="mono">FDW</span> (key 3).', items: [{ label: 'Encrypt HELP with key 3', answer: ['KHOS'] }, { label: 'Decrypt FDW with key 3', answer: ['CAT'] }] },
+  { type: 'match', ref: 'A2.4', prompt: 'Symmetric or asymmetric encryption?', head: ['Statement', 'Type'], options: ['symmetric', 'asymmetric'],
+    items: [{ label: 'The same key encrypts and decrypts', answer: 'symmetric' }, { label: 'A public key locks; only the matching private key unlocks', answer: 'asymmetric' }, { label: 'Fast – used for the bulk of the data in HTTPS', answer: 'symmetric' }, { label: 'Solves the problem of sharing a key over an untrusted network', answer: 'asymmetric' }, { label: 'AES', answer: 'symmetric' }, { label: 'RSA', answer: 'asymmetric' }] },
+  { type: 'order', ref: 'A2.4', prompt: 'Order the steps by which HTTPS sets up a secure connection.', items: ['Server sends its certificate with its public key; browser verifies the signature', 'Browser generates a random symmetric session key', 'Browser encrypts the session key with the server\'s public key and sends it', 'Server decrypts the session key with its private key', 'Both sides encrypt all further data with the shared session key'], feedback: 'Asymmetric for the key exchange, symmetric for speed afterwards.' },
+  { type: 'mcq', ref: 'A2.4', prompt: 'Why is the Caesar cipher useless for real security, and what property do real ciphers need?', options: ['Only 25 keys exist, so an attacker tries them all in seconds; real ciphers need a key space so large (e.g. 2¹²⁸) that brute force is impossible', 'It uses letters instead of numbers', 'It cannot encrypt spaces', 'It is too slow'], answer: 0, feedback: 'Security should rest on the secrecy and size of the key, not on the secrecy of the method.' },
+  { type: 'mcq', ref: 'A2.4', prompt: 'What does the certificate in HTTPS protect against?', options: ['An impostor site pretending to be your bank: the certificate is signed by a trusted authority and proves the public key really belongs to that domain', 'Slow connections', 'Packets arriving out of order', 'Running out of IP addresses'], answer: 0, feedback: 'Encryption without authentication would let you talk secretly to the wrong person.' },
+]);
+
+/* ========================= n3 threats ========================= */
+const THREATS = [
+  ['Phishing', 'A fake email or site tricks a person into entering a password or clicking malware.', 'User education, spam filtering, checking the address bar and certificate, two-factor authentication so a stolen password alone is useless.'],
+  ['Malware / ransomware', 'Malicious software that spreads through the network, encrypts files and demands payment.', 'Antivirus and updates, firewalls, network segmentation to contain spread, offline backups, least-privilege accounts.'],
+  ['Denial of service (DoS/DDoS)', 'Flooding a server or link with traffic so legitimate users cannot get through.', 'Rate limiting, traffic filtering, spare capacity/CDNs, ISP-level scrubbing.'],
+  ['Eavesdropping / man-in-the-middle', 'Capturing or altering traffic on the path – easy on open Wi-Fi or with a fake access point.', 'Encryption everywhere: HTTPS, VPN, WPA3 on Wi-Fi; certificates to detect impostors.'],
+  ['Brute-force / weak passwords', 'Guessing passwords by trying millions of combinations, or using leaked ones.', 'Long unique passwords, password managers, account lock-outs, two-factor authentication, hashing passwords on the server.'],
+  ['Unpatched devices', 'Old software with known holes lets attackers in.', 'Automatic updates, retiring unsupported devices, isolating IoT devices on their own VLAN.'],
+];
+$('threats').innerHTML = THREATS.map((t, i) => `<div class="tbox threat" data-i="${i}">${t[0]}</div>`).join('');
+$('threats').querySelectorAll('.threat').forEach(el => el.onclick = () => { $('threats').querySelectorAll('.threat').forEach(x => x.classList.remove('on')); el.classList.add('on'); const t = THREATS[+el.dataset.i]; $('threatStory').innerHTML = `<b class="step">${t[0]}</b><br><b>How:</b> ${t[1]}<br><b>Defence:</b> ${t[2]}`; });
+
+renderTasks('n3', [
+  { type: 'match', ref: 'A2.4', prompt: 'Which threat is described?', head: ['Description', 'Threat'], options: THREATS.map(t => t[0]),
+    items: [{ label: 'An email that looks like it comes from the head teacher asks staff to "confirm" their password', answer: 'Phishing' }, { label: 'Every file on the school network is suddenly encrypted with a ransom note', answer: 'Malware / ransomware' }, { label: 'The school website is unreachable during a flood of millions of requests', answer: 'Denial of service (DoS/DDoS)' }, { label: 'Someone on café Wi-Fi reads logins sent over plain HTTP', answer: 'Eavesdropping / man-in-the-middle' }, { label: 'An account is broken into because its password was "password1"', answer: 'Brute-force / weak passwords' }] },
+  { type: 'match', ref: 'A2.4', prompt: 'Which defence best addresses each situation?', head: ['Situation', 'Best defence'], options: ['two-factor authentication', 'HTTPS / VPN encryption', 'network segmentation', 'regular updates / patching', 'offline backups', 'firewall rules'],
+    items: [{ label: 'Stolen passwords keep being used to log in from abroad', answer: 'two-factor authentication' }, { label: 'Staff use hotel Wi-Fi to access school systems', answer: 'HTTPS / VPN encryption' }, { label: 'Ransomware on one laptop spread to every server', answer: 'network segmentation' }, { label: 'Attack exploited a bug fixed two years ago', answer: 'regular updates / patching' }, { label: 'Encrypted files must be recovered without paying', answer: 'offline backups' }, { label: 'Internet hosts keep probing the database port', answer: 'firewall rules' }] },
+  { type: 'mcq', ref: 'A2.4', prompt: 'Why is "defence in depth" (several layers: firewall, segmentation, encryption, authentication, updates, education) better than one strong measure?', options: ['Every measure can fail or be bypassed; layers mean an attacker who gets past one still faces others, limiting the damage', 'It is cheaper', 'One measure is always enough if it is strong', 'Layers make the network faster'], answer: 0, feedback: 'Most real breaches chain several weaknesses – a phishing email, then an unpatched machine, then a flat network.' },
+  { type: 'mcq', ref: 'A2.4', prompt: 'Which is the weakest link in most network security incidents?', options: ['People – clicking links, reusing passwords, ignoring updates – which is why training matters as much as technology', 'Fibre optic cables', 'IPv6', 'Switches'], answer: 0, feedback: 'Technical controls reduce the damage a human mistake can do.' },
+]);
+
+/* ========================= tocs, confidence, tabs ========================= */
+const TOCS = { tocF: [['f1', '1 Network types'], ['f2', '2 Digital infrastructure'], ['f3', '3 Devices'], ['f4', '4 Protocols'], ['f5', '5 TCP/IP model (HL)']], tocA: [['a1', '1 Topologies'], ['a2', '2 Servers (HL)'], ['a3', '3 Client–server vs P2P'], ['a4', '4 Segmentation']], tocP: [['p1', '1 IP addressing'], ['p2', '2 Packets'], ['p3', '3 Requests & DNS'], ['p4', '4 Media']], tocN: [['n1', '1 Firewalls'], ['n2', '2 Encryption'], ['n3', '3 Threats & defences']] };
+Object.entries(TOCS).forEach(([id, items]) => $(id).innerHTML = items.map(([s, t]) => `<a href="#${s}" class="${t.includes('HL') ? 'hl' : ''}">${t}</a>`).join(''));
+const CONF = [['A2.1.1', 'Purpose and characteristics of networks'], ['A2.1.2', 'Modern digital infrastructures'], ['A2.1.3', 'Network devices'], ['A2.1.4', 'Transport and application protocols'], ['A2.1.5', 'TCP/IP model (HL)'], ['A2.2.1', 'Topologies'], ['A2.2.2', 'Servers (HL)'], ['A2.2.3', 'Client–server vs peer-to-peer'], ['A2.2.4', 'Segmentation, subnetting, VLANs'], ['A2.3.1', 'IP addressing'], ['A2.3', 'Packets, packet switching, requests, media'], ['A2.4', 'Network security']];
+$('confA2').innerHTML = '<tr><th>Statement</th><th>Red</th><th>Amber</th><th>Green</th></tr>' + CONF.map(([r, t], i) => `<tr><td><b>${r}</b> ${t}</td><td><input type="radio" name="cf${i}"></td><td><input type="radio" name="cf${i}"></td><td><input type="radio" name="cf${i}"></td></tr>`).join('');
+
+})();
+
+
+/* ---------- topic + tab navigation ---------- */
+(function(){
+  const showTab = id => { document.querySelectorAll('.tab').forEach(t => t.hidden = t.id !== id); };
+  document.querySelectorAll('.tabbar button').forEach(b => b.onclick = () => {
+    b.parentElement.querySelectorAll('button').forEach(x => x.classList.toggle('on', x === b));
+    showTab(b.dataset.tab); window.scrollTo({ top: 0 });
+  });
+  document.querySelectorAll('.topicbar button').forEach(b => b.onclick = () => {
+    document.querySelectorAll('.topicbar button').forEach(x => x.classList.toggle('on', x === b));
+    document.querySelectorAll('.tabbar[data-topic]').forEach(bar => bar.hidden = bar.dataset.topic !== b.dataset.topic);
+    const bar = document.querySelector(`.tabbar[data-topic="${b.dataset.topic}"]`);
+    const on = bar.querySelector('button.on') || bar.querySelector('button');
+    on.classList.add('on'); showTab(on.dataset.tab); window.scrollTo({ top: 0 });
+  });
+  document.querySelectorAll('nav.toc a[href^="#"]').forEach(a => a.addEventListener('click', e => {
+    const sec = document.querySelector(a.getAttribute('href')); if (!sec) return;
+    const tab = sec.closest('.tab'); if (tab && tab.hidden) {
+      const btn = document.querySelector(`.tabbar button[data-tab="${tab.id}"]`);
+      if (btn) btn.click();
+      e.preventDefault(); setTimeout(() => sec.scrollIntoView({ behavior: 'smooth' }), 50);
+    }
+  }));
+})();
+updateTotals();
+
+</script></body></html>
